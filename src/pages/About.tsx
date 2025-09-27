@@ -55,17 +55,19 @@ const About = () => {
                 The Story Behind MamaAlert
               </h2>
               <div className="space-y-4 text-muted-foreground">
-                <p>
-                  When Sarah, a new mother, found herself in an emergency situation at 3 AM 
-                  with no immediate access to help, she realized how vulnerable mothers can 
-                  feel during critical moments. This experience sparked the idea for MamaAlert.
-                </p>
-                <p>
-                  Working with healthcare professionals, emergency responders, and hundreds 
-                  of mothers, we discovered that existing solutions weren't designed with 
-                  the unique needs of maternal health in mind. Mothers needed something more 
-                  comprehensive, more intelligent, and more compassionate.
-                </p>
+                 <p>
+                   Founded by Boluwatife Adeagbo, a passionate advocate for maternal health, 
+                   MamaAlert was born from a simple yet powerful belief: every mother deserves 
+                   access to life-saving information and support, regardless of her location 
+                   or circumstances.
+                 </p>
+                 <p>
+                   Boluwatife's personal experience and deep understanding of the challenges 
+                   facing mothers across Africa inspired the creation of MamaAlert. Having 
+                   witnessed firsthand the barriers to accessing timely, relevant health 
+                   information, we set out to bridge this critical gap with technology that 
+                   truly serves the people who need it most.
+                 </p>
                 <p>
                   Today, MamaAlert represents the culmination of years of research, development, 
                   and real-world testing with mothers from diverse backgrounds and circumstances. 
@@ -207,9 +209,9 @@ const About = () => {
                 'Will this make a mother's life safer, healthier, and more supported?' 
                 That's not just our mission—it's our promise."
               </blockquote>
-              <div className="text-foreground font-semibold">
-                — The MamaAlert Founding Team
-              </div>
+               <div className="text-foreground font-semibold">
+                 — Boluwatife Adeagbo, Founder of MamaAlert
+               </div>
             </div>
 
             <div className="mt-12">

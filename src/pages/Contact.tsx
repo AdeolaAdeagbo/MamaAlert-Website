@@ -72,20 +72,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "hello@mamaalert.com",
+      content: "mymamalert@gmail.com",
       description: "For general inquiries and support"
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "1-800-MAMA-ALERT",
+      content: "+2347065790166",
       description: "Monday to Friday, 9 AM - 6 PM EST"
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "Supporting mothers worldwide",
-      description: "Remote-first with global impact"
+      content: "Supporting mothers across Africa",
+      description: "Focused on maternal health in Nigeria and beyond"
     },
     {
       icon: Clock,
@@ -240,7 +240,7 @@ const Contact = () => {
                   <div className="space-y-3">
                     <div>
                       <h4 className="font-medium text-foreground text-sm">When will MamaAlert be available?</h4>
-                      <p className="text-xs text-muted-foreground">We're launching beta in Q2 2024. Join the waitlist for updates!</p>
+                      <p className="text-xs text-muted-foreground">We're launching November 15th, 2025. Join the waitlist for updates!</p>
                     </div>
                     <div>
                       <h4 className="font-medium text-foreground text-sm">Is MamaAlert free to use?</h4>
@@ -286,12 +286,12 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
                 <a href="#" className="text-lg px-8 py-3">
-                  Join Facebook Group
+                  Join WhatsApp Group
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a href="#" className="text-lg px-8 py-3">
-                  Follow on Instagram
+                  Become a Volunteer
                 </a>
               </Button>
             </div>

@@ -44,8 +44,8 @@ const Features = () => {
   const additionalFeatures = [
     { icon: Heart, title: "Wellness Tracking", description: "Monitor mood, energy levels, and overall well-being throughout your maternal journey." },
     { icon: Clock, title: "Appointment Management", description: "Never miss another appointment with smart scheduling and automated reminders." },
-    { icon: Users, title: "Support Network", description: "Connect with other mothers, support groups, and healthcare professionals in your area." },
-    { icon: Smartphone, title: "Wearable Integration", description: "Sync with popular fitness trackers and health monitors for comprehensive data." },
+    { icon: Smartphone, title: "Mobile Optimized", description: "Fully optimized mobile experience for access anywhere, anytime." },
+    { icon: Users, title: "Community Support", description: "Connect with healthcare professionals and support networks in your community." },
     { icon: Calendar, title: "Milestone Tracking", description: "Celebrate and track important moments in your maternal health journey." },
     { icon: AlertTriangle, title: "Warning Systems", description: "Early warning indicators for potential health concerns requiring professional attention." },
     { icon: Activity, title: "Health Analytics", description: "Personalized insights and trends based on your unique health data patterns." },
