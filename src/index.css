@@ -18,15 +18,15 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
     
-    /* Primary brand colors - Warm red for alerts with care */
-    --primary: 351 90% 55%;
+    /* Primary brand colors - Professional red with better contrast */
+    --primary: 351 65% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 351 75% 65%;
-    --primary-light: 351 85% 90%;
+    --primary-soft: 351 45% 55%;
+    --primary-light: 351 25% 95%;
     
-    /* Secondary warm colors */
-    --secondary: 24 60% 95%;
-    --secondary-foreground: 215 25% 20%;
+    /* Secondary neutral colors */
+    --secondary: 210 15% 97%;
+    --secondary-foreground: 215 20% 25%;
     
     /* Muted backgrounds and text */
     --muted: 20 20% 96%;
@@ -54,10 +54,10 @@
     --input: 20 25% 88%;
     --ring: 351 90% 55%;
     
-    /* Gradients for beautiful backgrounds */
-    --gradient-primary: linear-gradient(135deg, hsl(351 90% 55%), hsl(351 75% 65%));
-    --gradient-warm: linear-gradient(135deg, hsl(24 60% 95%), hsl(0 0% 100%));
-    --gradient-trust: linear-gradient(135deg, hsl(152 65% 45%), hsl(152 55% 55%));
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(351 65% 45%), hsl(351 45% 55%));
+    --gradient-warm: linear-gradient(135deg, hsl(210 15% 97%), hsl(0 0% 100%));
+    --gradient-trust: linear-gradient(135deg, hsl(152 50% 40%), hsl(152 40% 50%));
     
     /* Shadows for depth */
     --shadow-soft: 0 4px 20px hsl(351 20% 20% / 0.1);

@@ -7,62 +7,68 @@ import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
-      title: "Understanding Maternal Health Alerts: What Every Mother Should Know",
-      excerpt: "Learn about the critical health indicators that matter most during pregnancy and postpartum, and how technology can help you stay informed.",
-      author: "Dr. Sarah Chen",
-      date: "2024-01-15",
-      readTime: "5 min read",
-      category: "Health Education",
-      featured: true
-    },
-    {
-      title: "Emergency Preparedness for New Mothers: A Complete Guide",
-      excerpt: "Essential steps every new mother should take to prepare for emergency situations, from creating action plans to building support networks.",
-      author: "Maria Rodriguez, RN",
-      date: "2024-01-10",
+      title: "Barriers and Facilitators to Maternal Healthcare in East Africa",
+      excerpt: "A comprehensive review examining the perspectives of women, families, healthcare providers, and key stakeholders on maternal healthcare access in East Africa.",
+      author: "BMC Pregnancy Research Team",
+      date: "2025-02-15",
       readTime: "8 min read",
-      category: "Safety & Preparedness",
-      featured: false
+      category: "Health Research",
+      featured: true,
+      url: "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07225-8"
     },
     {
-      title: "The Science Behind Smart Health Notifications",
-      excerpt: "Exploring how AI and machine learning can improve maternal health outcomes through personalized, timely alerts and recommendations.",
-      author: "Tech Team",
-      date: "2024-01-05",
+      title: "Leveraging AI for Inclusive Maternity Care in Africa",
+      excerpt: "Exploring how artificial intelligence can enhance access to maternal healthcare for mothers with disabilities across African communities.",
+      author: "National Center for Health Research",
+      date: "2024-12-20",
       readTime: "6 min read",
       category: "Technology",
-      featured: false
+      featured: false,
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11910734/"
     },
     {
-      title: "Building Your Maternal Health Support Network",
-      excerpt: "Why having a strong support system is crucial for maternal health and how to build connections that last beyond pregnancy.",
-      author: "Dr. Jennifer Kim",
-      date: "2023-12-28",
+      title: "Early Postnatal Care Uptake and Associated Factors",
+      excerpt: "Research findings on factors influencing early postnatal care utilization and strategies to improve maternal and newborn outcomes.",
+      author: "Frontiers in Public Health",
+      date: "2024-11-27",
       readTime: "7 min read",
-      category: "Community",
-      featured: false
-    },
-    {
-      title: "Postpartum Health: Warning Signs You Shouldn't Ignore",
-      excerpt: "Critical symptoms and changes that require immediate medical attention during the postpartum period, and how to advocate for your health.",
-      author: "Dr. Sarah Chen",
-      date: "2023-12-20",
-      readTime: "10 min read",
       category: "Health Education",
-      featured: false
+      featured: false,
+      url: "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1439280/full"
     },
     {
-      title: "Mental Health and Maternal Wellness: Breaking the Silence",
-      excerpt: "Addressing the importance of mental health support during pregnancy and beyond, with resources for mothers seeking help.",
-      author: "Dr. Lisa Thompson, PhD",
-      date: "2023-12-15",
+      title: "Maternal Health Services Completion in Northern Uganda",
+      excerpt: "Cross-sectional study examining factors associated with completion of maternal health services among women in outpatient facilities.",
+      author: "BMC Health Services Research",
+      date: "2024-10-15",
       readTime: "9 min read",
-      category: "Mental Health",
-      featured: false
+      category: "Health Research",
+      featured: false,
+      url: "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-025-12764-z"
+    },
+    {
+      title: "Adequate Postnatal Care: Only Three in Ten Women",
+      excerpt: "New research reveals concerning gaps in postnatal care coverage, highlighting the urgent need for improved maternal health services.",
+      author: "BMC Pregnancy and Childbirth",
+      date: "2024-09-11",
+      readTime: "5 min read",
+      category: "Health Education",
+      featured: false,
+      url: "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07276-x"
+    },
+    {
+      title: "Selected Newborn Postnatal Care Utilization",
+      excerpt: "Understanding factors affecting newborn postnatal care within the first two days after birth to prevent neonatal deaths.",
+      author: "BMC Pregnancy Research",
+      date: "2024-08-23",
+      readTime: "6 min read",
+      category: "Newborn Care",
+      featured: false,
+      url: "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07594-0"
     }
   ];
 
-  const categories = ["All", "Health Education", "Safety & Preparedness", "Technology", "Community", "Mental Health"];
+  const categories = ["All", "Health Research", "Health Education", "Technology", "Newborn Care"];
 
   return (
     <div className="min-h-screen">
@@ -129,9 +135,11 @@ const Blog = () => {
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {blogPosts[0].excerpt}
                 </p>
-                <Button className="group">
-                  Read Full Article
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <Button className="group" asChild>
+                  <a href={blogPosts[0].url} target="_blank" rel="noopener noreferrer">
+                    Read Full Article
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -171,9 +179,11 @@ const Blog = () => {
                       <span>{post.author}</span>
                       <span>{new Date(post.date).toLocaleDateString()}</span>
                     </div>
-                    <Button variant="outline" size="sm" className="group w-full">
-                      Read More
-                      <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <Button variant="outline" size="sm" className="group w-full" asChild>
+                      <a href={post.url} target="_blank" rel="noopener noreferrer">
+                        Read More
+                        <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </a>
                     </Button>
                   </div>
                 </CardContent>

@@ -32,44 +32,45 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-warm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-                Smart Alerts for{' '}
-                <span className="text-primary">Maternal Health</span>{' '}
-                & Emergency Response
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Empowering mothers with intelligent health monitoring, timely reminders, 
-                and instant emergency support. Because every mother deserves the best care.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="text-lg px-8 py-3" asChild>
-                  <Link to="/waitlist">Join Waitlist</Link>
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
-                  <Link to="/features">Learn More</Link>
-                </Button>
+      <section className="relative py-24 lg:py-32 bg-gradient-warm overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
+                  Smart Alerts for{' '}
+                  <span className="text-primary block">Maternal Health</span>
+                  <span className="text-trust">& Emergency Response</span>
+                </h1>
+                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl">
+                  Empowering mothers across Africa with intelligent health monitoring, 
+                  emergency alerts, and instant access to healthcare support.
+                </p>
+              </div>
+              
+              <div className="pt-4">
+                <WaitlistForm />
+              </div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground pt-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-trust rounded-full"></div>
+                  <span>Launching November 15, 2025</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span>Made for African mothers</span>
+                </div>
               </div>
             </div>
             
-            <div className="relative animate-slide-up">
-              <div className="relative rounded-2xl overflow-hidden shadow-warm">
+            <div className="relative lg:ml-8">
+              <div className="aspect-[4/5] max-w-md mx-auto relative">
                 <img 
-                  src={heroImage} 
-                  alt="Maternal health and care" 
-                  className="w-full h-auto object-cover"
+                  src={heroImage}
+                  alt="African mother and baby representing maternal health care"
+                  className="w-full h-full object-cover rounded-xl shadow-card"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-              </div>
-              {/* Floating alert badge */}
-              <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <Heart className="w-4 h-4 animate-pulse" />
-                  <span className="text-sm font-medium">Health Alert</span>
-                </div>
               </div>
             </div>
           </div>
