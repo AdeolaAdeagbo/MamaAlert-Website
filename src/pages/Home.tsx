@@ -56,19 +56,19 @@ const Home = () => {
             </div>
             
             <div className="relative animate-slide-up">
-              <div className="relative rounded-2xl overflow-hidden shadow-warm">
+              <div className="relative rounded-3xl overflow-hidden shadow-warm aspect-[4/3]">
                 <img 
                   src={heroImage} 
                   alt="Maternal health and care" 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"></div>
               </div>
               {/* Floating alert badge */}
-              <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full shadow-lg">
+              <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg border-4 border-white">
                 <div className="flex items-center space-x-2">
-                  <Heart className="w-4 h-4 animate-pulse" />
-                  <span className="text-sm font-medium">Health Alert</span>
+                  <Heart className="w-5 h-5 animate-pulse" />
+                  <span className="text-sm font-semibold">Health Alert</span>
                 </div>
               </div>
             </div>

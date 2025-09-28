@@ -165,9 +165,9 @@ const Features = () => {
                 <img 
                   src={appFeaturesImage} 
                   alt="MamaAlert app interface showing health alerts" 
-                  className="max-w-sm mx-auto rounded-2xl shadow-warm"
+                  className="max-w-md mx-auto rounded-3xl shadow-warm"
                 />
-                <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                   Coming Soon
                 </div>
               </div>

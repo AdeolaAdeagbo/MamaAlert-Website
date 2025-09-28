@@ -56,23 +56,33 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                  <p>
-                   Founded by Boluwatife Adeagbo, a passionate advocate for maternal health, 
-                   MamaAlert was born from a simple yet powerful belief: every mother deserves 
-                   access to life-saving information and support, regardless of her location 
-                   or circumstances.
+                   It was 3 AM when the call came. A mother, alone in her small apartment, 
+                   experiencing complications she had never felt before. Her husband was away, 
+                   family members hours away, and she didn't know if what she was feeling was 
+                   normal or life-threatening. In that terrifying moment of uncertainty, she 
+                   realized how isolated and vulnerable she truly was.
                  </p>
                  <p>
-                   Boluwatife's personal experience and deep understanding of the challenges 
-                   facing mothers across Africa inspired the creation of MamaAlert. Having 
-                   witnessed firsthand the barriers to accessing timely, relevant health 
-                   information, we set out to bridge this critical gap with technology that 
-                   truly serves the people who need it most.
+                   This story isn't unique. Across Africa, countless mothers face similar moments 
+                   of fear and isolation. They carry life within them, yet often lack immediate 
+                   access to the knowledge, support, and emergency response systems that could 
+                   save both their lives and their babies'. Some have to walk miles to reach the 
+                   nearest clinic. Others simply don't know when a symptom requires urgent attention.
                  </p>
-                <p>
-                  Today, MamaAlert represents the culmination of years of research, development, 
-                  and real-world testing with mothers from diverse backgrounds and circumstances. 
-                  We're not just building an app – we're building a movement for better maternal care.
-                </p>
+                 <p>
+                   Too many mothers suffer in silence, not because help doesn't exist, but because 
+                   the gap between them and that help feels impossible to bridge. Every year, 
+                   preventable complications take mothers from their families simply because the 
+                   right information didn't reach them at the right time.
+                 </p>
+                 <p>
+                   MamaAlert was born from this pain—from the recognition that no mother should 
+                   face her health journey alone. This platform emerged from years of listening 
+                   to mothers' stories, understanding their fears, and witnessing the devastating 
+                   consequences of delayed care. The vision was shaped by Boluwatife Adeagbo, 
+                   whose passion for maternal health and deep understanding of these challenges 
+                   drove the creation of this life-saving technology.
+                 </p>
               </div>
               <div className="mt-8">
                 <Button size="lg" asChild>
