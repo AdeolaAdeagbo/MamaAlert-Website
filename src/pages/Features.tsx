@@ -33,11 +33,11 @@ const Features = () => {
       status: "Community Feature"
     },
     {
-      icon: Shield,
-      title: "Health Data Security",
-      description: "End-to-end encryption and HIPAA-compliant storage for all your sensitive health information.",
-      benefits: ["256-bit encryption", "HIPAA compliant", "User-controlled sharing"],
-      status: "Privacy First"
+      icon: MessageCircle,
+      title: "Iyabot Voice Assistant",
+      description: "Revolutionary multilingual AI companion that works offline, providing health guidance in African languages.",
+      benefits: ["Works without internet", "Multiple African languages", "Voice-first interaction"],
+      status: "Revolutionary"
     }
   ];
 
@@ -49,7 +49,7 @@ const Features = () => {
     { icon: Calendar, title: "Milestone Tracking", description: "Celebrate and track important moments in your maternal health journey." },
     { icon: AlertTriangle, title: "Warning Systems", description: "Early warning indicators for potential health concerns requiring professional attention." },
     { icon: Activity, title: "Health Analytics", description: "Personalized insights and trends based on your unique health data patterns." },
-    { icon: MessageCircle, title: "Telehealth Ready", description: "Seamless integration with telehealth platforms and virtual consultations." }
+    { icon: Shield, title: "Privacy Protection", description: "End-to-end encryption and HIPAA-compliant storage for all health information." }
   ];
 
   return (
