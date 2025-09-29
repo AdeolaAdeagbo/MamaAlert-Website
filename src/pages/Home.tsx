@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Heart, Shield, Clock, MapPin, Phone, Bell } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
 import heroImage from '@/assets/hero-maternal-health.jpg';
+import heroBackground from '@/assets/hero-background.jpg';
 
 const Home = () => {
   const features = [
@@ -33,7 +34,16 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-warm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroBackground} 
+            alt="Maternal health background" 
+            className="w-full h-full object-cover opacity-30 blur-sm"
+          />
+          <div className="absolute inset-0 bg-gradient-warm/80"></div>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left animate-fade-in">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
