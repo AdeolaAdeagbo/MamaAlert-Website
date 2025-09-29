@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, Clock, MessageCircle } from 'lucide-react';
+import pregnancyDangerSigns from '@/assets/pregnancy-danger-signs.jpg';
 
 const Blog = () => {
   const categories = [
@@ -23,7 +24,7 @@ const Blog = () => {
       category: "safety-preparedness",
       readTime: "8 min read",
       date: "2024-09-25",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop",
+      image: pregnancyDangerSigns,
       link: "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
       isExternal: true
     },
