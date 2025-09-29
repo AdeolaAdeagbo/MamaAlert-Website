@@ -262,8 +262,9 @@ const Contact = () => {
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     If you're experiencing a medical emergency, please call 911 
-                    immediately or contact your healthcare provider. This form is 
-                    not monitored for emergency situations.
+                    immediately or contact your healthcare provider. Pregnant women in danger 
+                    can also use our USSD feature by dialing *123*456# for emergency assistance. 
+                    This form is not monitored for emergency situations.
                   </p>
                 </CardContent>
               </Card>

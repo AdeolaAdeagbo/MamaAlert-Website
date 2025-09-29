@@ -7,7 +7,7 @@ import {
   Users, Smartphone, Calendar, AlertTriangle,
   Activity, MessageCircle
 } from 'lucide-react';
-import appFeaturesImage from '@/assets/app-features-phone.jpg';
+import comingSoonImage from '@/assets/coming-soon-mockup.jpg';
 
 const Features = () => {
   const primaryFeatures = [
@@ -20,9 +20,9 @@ const Features = () => {
     },
     {
       icon: Phone,
-      title: "Emergency Response",
-      description: "One-tap emergency contacts with automatic location sharing and medical information relay.",
-      benefits: ["Instant contact activation", "GPS location sharing", "Medical history access"],
+      title: "Emergency Response & USSD",
+      description: "One-tap emergency contacts with automatic location sharing and USSD dialing (*123*456#) for pregnant women in danger.",
+      benefits: ["Instant contact activation", "GPS location sharing", "USSD emergency dialing", "Medical history access"],
       status: "Critical Feature"
     },
     {
@@ -163,8 +163,8 @@ const Features = () => {
             <div className="text-center">
               <div className="relative inline-block">
                 <img 
-                  src={appFeaturesImage} 
-                  alt="MamaAlert app interface showing health alerts" 
+                  src="/src/assets/coming-soon-mockup.jpg" 
+                  alt="MamaAlert app coming soon preview" 
                   className="max-w-md mx-auto rounded-3xl shadow-warm"
                 />
                 <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">

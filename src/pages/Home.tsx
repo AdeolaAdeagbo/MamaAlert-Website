@@ -14,8 +14,8 @@ const Home = () => {
     },
     {
       icon: Phone,
-      title: "Emergency Response",
-      description: "Instant emergency contacts and location sharing when you need help most"
+      title: "Emergency Response & USSD",
+      description: "Instant emergency contacts, USSD dialing for danger situations, and location sharing"
     },
     {
       icon: MapPin,

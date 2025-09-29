@@ -23,7 +23,7 @@ const Blog = () => {
       category: "safety-preparedness",
       readTime: "8 min read",
       date: "2024-09-25",
-      image: "https://images.unsplash.com/photo-1555774853-d91fd59c4654?w=400&h=250&fit=crop",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop",
       link: "https://www.cdc.gov/hearher/maternal-warning-signs/index.html",
       isExternal: true
     },
