@@ -44,8 +44,8 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-warm/80"></div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-fade-in">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Smart Alerts for{' '}
                 <span className="text-primary">Maternal Health</span>{' '}
@@ -55,32 +55,13 @@ const Home = () => {
                 Empowering mothers with intelligent health monitoring, timely reminders, 
                 and instant emergency support. Because every mother deserves the best care.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="text-lg px-8 py-3" asChild>
                   <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
                   <Link to="/features">Learn More</Link>
                 </Button>
-              </div>
-            </div>
-            
-            <div className="relative animate-slide-up">
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
-                <img 
-                  src={heroImage} 
-                  alt="Maternal health and care" 
-                  className="w-full h-full object-cover object-center opacity-20 mix-blend-multiply"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-warm/50"></div>
-              </div>
-              {/* Floating alert badge */}
-              <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg border-4 border-white">
-                <div className="flex items-center space-x-2">
-                  <Heart className="w-5 h-5 animate-pulse" />
-                  <span className="text-sm font-semibold">Health Alert</span>
-                </div>
               </div>
             </div>
           </div>
