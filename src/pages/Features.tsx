@@ -163,7 +163,7 @@ const Features = () => {
             <div className="text-center">
               <div className="relative inline-block">
                 <img 
-                  src="/src/assets/coming-soon-mockup.jpg" 
+                  src={comingSoonImage} 
                   alt="MamaAlert app coming soon preview" 
                   className="max-w-md mx-auto rounded-3xl shadow-warm"
                 />
