@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, User, Check } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 interface WaitlistFormProps {
   title?: string;
@@ -47,9 +48,28 @@ const WaitlistForm = ({
     setIsLoading(true);
 
     try {
-      // TODO: Connect to Supabase or external service
-      // For now, we'll simulate the submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { error: submitError } = await supabase
+        .from('waitlist_submissions')
+        .insert([
+          {
+            name: name.trim(),
+            email: email.trim().toLowerCase(),
+            source: 'website'
+          }
+        ]);
+
+      if (submitError) {
+        if (submitError.code === '23505') { // Unique constraint violation for duplicate email
+          toast({
+            title: "Already registered",
+            description: "This email is already on our waitlist! We'll keep you updated.",
+            variant: "destructive",
+          });
+        } else {
+          throw submitError;
+        }
+        return;
+      }
       
       setIsSubmitted(true);
       toast({

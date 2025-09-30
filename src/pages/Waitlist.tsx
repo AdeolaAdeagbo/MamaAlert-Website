@@ -30,19 +30,19 @@ const Waitlist = () => {
 
   const testimonials = [
     {
-      text: "As a new mom, I'm constantly worried about missing important health milestones. MamaAlert sounds like exactly what I need.",
-      author: "Sarah M.",
-      location: "California"
+      text: "As a new mother in Lagos, having an app that understands Nigerian maternal health challenges is exactly what I need. MamaAlert will be a game-changer.",
+      author: "Adunni O.",
+      location: "Lagos, Nigeria"
     },
     {
-      text: "The emergency response feature gives me peace of mind, especially living far from family. Can't wait for this to launch!",
-      author: "Jennifer K.",
-      location: "Texas"
+      text: "Living in Abuja with my newborn, the emergency response feature gives me confidence knowing help is just one tap away. I can't wait for this to launch!",
+      author: "Kemi A.",
+      location: "Abuja, Nigeria"
     },
     {
-      text: "Finally, a health app designed specifically for mothers. The waitlist was an easy decision.",
-      author: "Maria L.",
-      location: "Florida"
+      text: "Finally, a health app that considers the unique needs of African mothers. The multilingual support and offline features are perfect for our communities.",
+      author: "Fatima I.",
+      location: "Kano, Nigeria"
     }
   ];
 
@@ -227,7 +227,7 @@ const Waitlist = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Q1 2024 - Beta Testing (Current)
+                    October 2025 - Beta Testing (Current)
                   </h3>
                   <p className="text-muted-foreground">
                     Limited beta release with waitlist members, gathering feedback and refining features based on real user experiences.
@@ -241,7 +241,7 @@ const Waitlist = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Q2 2024 - Public Launch
+                    November 2025 - Public Launch
                   </h3>
                   <p className="text-muted-foreground">
                     Full public release with all core features, 24/7 support, and integration with major healthcare systems.
