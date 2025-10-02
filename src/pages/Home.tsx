@@ -1,12 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Clock, MapPin, Phone, Bell, Check } from 'lucide-react';
+import { Heart, Shield, Clock, MapPin, Phone, Bell } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
-import heroMotherPhone from '@/assets/hero-mother-phone.jpg';
-import careConsultation from '@/assets/care-consultation.jpg';
-import communitySupport from '@/assets/community-support.jpg';
+import heroImage from '@/assets/hero-maternal-health.jpg';
+import heroBackground from '@/assets/hero-background.jpg';
 
 const Home = () => {
   const features = [
@@ -32,207 +30,104 @@ const Home = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      text: "As a new mother in Lagos, having an app that understands Nigerian maternal health challenges is exactly what I need. MamaAlert will be a game-changer.",
-      author: "Adunni O.",
-      location: "Lagos, Nigeria"
-    },
-    {
-      text: "The emergency response feature gives me confidence knowing help is just one tap away. I can't wait for this to launch!",
-      author: "Kemi A.",
-      location: "Abuja, Nigeria"
-    },
-    {
-      text: "Finally, a health app that considers the unique needs of African mothers. The multilingual support is perfect for our communities.",
-      author: "Fatima I.",
-      location: "Kano, Nigeria"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Is MamaAlert safe to use during pregnancy?",
-      answer: "Yes, MamaAlert is completely safe. Our app provides evidence-based information and connects you with verified healthcare professionals. All health recommendations are reviewed by medical experts."
-    },
-    {
-      question: "How does the emergency response feature work?",
-      answer: "MamaAlert offers instant emergency contacts with USSD dialing for danger situations, real-time location sharing, and direct connection to nearby healthcare facilities—ensuring help is always within reach."
-    },
-    {
-      question: "Can I track my pregnancy milestones?",
-      answer: "Absolutely! MamaAlert helps you monitor maternal health indicators, track appointments, medication schedules, and receive personalized insights throughout your pregnancy journey."
-    },
-    {
-      question: "Is my personal health data secure?",
-      answer: "Your privacy and data security are our top priorities. MamaAlert uses encryption and complies with healthcare data protection standards. Your information is never shared without your consent."
-    },
-    {
-      question: "When will MamaAlert be available?",
-      answer: "We're currently in beta testing and plan to launch publicly in November 2025. Join our waitlist to be among the first to access the app when it launches."
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-            <div className="animate-fade-in space-y-6 lg:space-y-8 text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight">
-                Smart care for{' '}
-                <span className="text-primary">mothers</span>
+      <section className="relative overflow-hidden bg-gradient-warm">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroBackground} 
+            alt="Maternal health background" 
+            className="w-full h-full object-cover opacity-30 blur-sm"
+          />
+          <div className="absolute inset-0 bg-gradient-warm/80"></div>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-fade-in">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+                Smart Alerts for{' '}
+                <span className="text-primary">Maternal Health</span>{' '}
+                & Emergency Response
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                Health monitoring, emergency support, and timely reminders—all in one place.
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                Empowering mothers with intelligent health monitoring, timely reminders, 
+                and instant emergency support. Because every mother deserves the best care.
               </p>
-              <div className="pt-2">
-                <Button size="lg" className="text-base px-8 h-12" asChild>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="text-lg px-8 py-3" asChild>
                   <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
+                <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+                  <Link to="/features">Learn More</Link>
+                </Button>
               </div>
-            </div>
-            <div className="animate-fade-in">
-              <img 
-                src={heroMotherPhone} 
-                alt="African mother using MamaAlert app" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24 sm:py-32 bg-background">
+      {/* Features Preview */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Why Choose MamaAlert?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Built specifically for mothers, by people who understand the unique 
+              challenges of maternal health and emergency situations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="space-y-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <feature.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+              <Card key={index} className="text-center p-6 hover:shadow-card transition-all duration-300 border-0 bg-muted/50">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="py-24 sm:py-32 bg-muted/30">
+      {/* Trust Section */}
+      <section className="py-20 bg-trust-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-            <div className="order-2 lg:order-1">
-              <img 
-                src={careConsultation} 
-                alt="Healthcare professional consultation" 
-                className="w-full h-auto rounded-2xl shadow-lg"
-              />
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="w-16 h-16 bg-trust rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield className="w-8 h-8 text-trust-foreground" />
             </div>
-            <div className="order-1 lg:order-2 space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                Bringing quality maternal care closer to women everywhere
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                MamaAlert is designed to make pregnancy safer and more supported for African women. 
-                We offer 24-hour support for early diagnosis, expert care, and personalized health monitoring.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 sm:py-32 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-              <div className="text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                  What mothers are saying
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Join thousands of mothers who trust MamaAlert for their maternal health journey.
-                </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              Trusted by Healthcare Professionals
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              MamaAlert is designed in collaboration with maternal health experts, 
+              emergency response professionals, and real mothers. Your safety and 
+              privacy are our top priorities.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-trust mb-2">24/7</div>
+                <p className="text-muted-foreground">Emergency Support</p>
               </div>
               <div>
-                <img 
-                  src={communitySupport} 
-                  alt="Community of mothers" 
-                  className="w-full h-auto rounded-2xl shadow-lg"
-                />
+                <div className="text-3xl font-bold text-trust mb-2">100%</div>
+                <p className="text-muted-foreground">HIPAA Compliant</p>
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="border-0 bg-muted/50">
-                  <CardContent className="pt-6 space-y-4">
-                    <p className="text-muted-foreground italic leading-relaxed">
-                      "{testimonial.text}"
-                    </p>
-                    <div>
-                      <p className="font-semibold text-foreground">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 sm:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Frequently asked questions
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Get answers to common questions about MamaAlert
-              </p>
-            </div>
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-background border rounded-lg px-6">
-                  <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 sm:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-3 gap-8 sm:gap-12 text-center">
-              <div className="space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-foreground">24/7</div>
-                <p className="text-sm text-muted-foreground">Support</p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-foreground">Secure</div>
-                <p className="text-sm text-muted-foreground">& Private</p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl sm:text-4xl font-bold text-foreground">10K+</div>
-                <p className="text-sm text-muted-foreground">On Waitlist</p>
+              <div>
+                <div className="text-3xl font-bold text-trust mb-2">10K+</div>
+                <p className="text-muted-foreground">Mothers on Waitlist</p>
               </div>
             </div>
           </div>
@@ -240,23 +135,33 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 sm:py-32 bg-primary text-primary-foreground">
+      <section className="py-20 bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center space-y-8">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-                Join the waitlist
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                Ready to Join the MamaAlert Community?
               </h2>
-              <p className="text-lg text-primary-foreground/90 max-w-xl mx-auto">
-                Be among the first to experience MamaAlert when we launch.
+              <p className="text-xl text-primary-foreground/90 mb-8">
+                Be among the first to experience the future of maternal health monitoring 
+                and emergency response. Join thousands of mothers already on our waitlist.
               </p>
-              <div className="max-w-md mx-auto pt-4">
-                <WaitlistForm 
-                  title=""
-                  description=""
-                  compact={true}
-                />
-              </div>
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="text-lg px-8 py-3"
+                asChild
+              >
+                <Link to="/about">Learn Our Story</Link>
+              </Button>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+              <WaitlistForm 
+                title="Get Early Access"
+                description="Join the waitlist and be notified when MamaAlert launches."
+                compact={false}
+              />
             </div>
           </div>
         </div>
