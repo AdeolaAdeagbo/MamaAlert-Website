@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, MapPin, Phone, Clock, Send, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Phone, Clock } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -98,207 +97,116 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-32 sm:py-40 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Get in <span className="text-primary">Touch</span>
+          <div className="text-center max-w-2xl mx-auto space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+              Get in touch
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Have questions about MamaAlert? Want to learn more about our mission? 
-              We'd love to hear from you. Our team is here to help.
+            <p className="text-lg text-muted-foreground">
+              Have questions? We're here to help.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-20 bg-background">
+      {/* Contact Form */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card className="border-0 shadow-card">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground flex items-center">
-                    <MessageSquare className="w-6 h-6 mr-3 text-primary" />
-                    Send us a Message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          placeholder="Enter your full name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        placeholder="What's this about?"
-                        value={formData.subject}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us how we can help you..."
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={6}
-                        required
-                      />
-                    </div>
-                    
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
-                      disabled={isLoading}
-                      size="lg"
-                    >
-                      {isLoading ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                    
-                    <p className="text-sm text-muted-foreground text-center">
-                      * Required fields. We'll respond within 24 hours.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Contact Information
-                </h2>
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">
-                          {info.title}
-                        </h3>
-                        <p className="text-foreground font-medium mb-1">
-                          {info.content}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {info.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+          <div className="max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm font-medium">Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="h-12"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="h-12"
+                  />
                 </div>
               </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="subject" className="text-sm font-medium">Subject</Label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="How can we help?"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="h-12"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us more..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={6}
+                  required
+                  className="resize-none"
+                />
+              </div>
+              
+              <Button 
+                type="submit" 
+                className="w-full h-12" 
+                disabled={isLoading}
+                size="lg"
+              >
+                {isLoading ? "Sending..." : "Send message"}
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
 
-              {/* FAQ Quick Links */}
-              <Card className="border-0 bg-muted/50">
-                <CardHeader>
-                  <CardTitle className="text-lg">Quick Questions?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">When will MamaAlert be available?</h4>
-                      <p className="text-xs text-muted-foreground">We're launching November 15th, 2025. Join the waitlist for updates!</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">Is MamaAlert free to use?</h4>
-                      <p className="text-xs text-muted-foreground">Core safety features will always be free. Premium features available with subscription.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">How secure is my health data?</h4>
-                      <p className="text-xs text-muted-foreground">We're HIPAA compliant with end-to-end encryption. Your privacy is our priority.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Emergency Notice */}
-              <Card className="border-l-4 border-l-destructive bg-destructive/5">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-destructive mb-2">
-                    Medical Emergency?
+      {/* Contact Information */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {contactInfo.map((info, index) => (
+              <div key={index} className="text-center space-y-3">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
+                  <info.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground text-sm mb-1">
+                    {info.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    If you're experiencing a medical emergency, please call 911 
-                    immediately or contact your healthcare provider. Pregnant women in danger 
-                    can also use our USSD feature by dialing *123*456# for emergency assistance. 
-                    This form is not monitored for emergency situations.
+                    {info.content}
                   </p>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Join Community */}
-      <section className="py-20 bg-primary-light">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Join Our Community
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Connect with other mothers, share experiences, and stay updated 
-              on the latest maternal health resources and MamaAlert developments.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <a href="#" className="text-lg px-8 py-3">
-                  Join WhatsApp Group
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a href="#" className="text-lg px-8 py-3">
-                  Become a Volunteer
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
