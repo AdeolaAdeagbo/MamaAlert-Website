@@ -4,6 +4,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Link } from 'react-router-dom';
 import { Heart, Shield, Clock, MapPin, Phone, Bell, Check } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
+import heroMotherPhone from '@/assets/hero-mother-phone.jpg';
+import careConsultation from '@/assets/care-consultation.jpg';
+import communitySupport from '@/assets/community-support.jpg';
 
 const Home = () => {
   const features = [
@@ -74,21 +77,28 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-48">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="animate-fade-in space-y-8">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+            <div className="animate-fade-in space-y-6 lg:space-y-8 text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight">
                 Smart care for{' '}
                 <span className="text-primary">mothers</span>
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
                 Health monitoring, emergency support, and timely reminders—all in one place.
               </p>
-              <div className="pt-4">
+              <div className="pt-2">
                 <Button size="lg" className="text-base px-8 h-12" asChild>
                   <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
               </div>
+            </div>
+            <div className="animate-fade-in">
+              <img 
+                src={heroMotherPhone} 
+                alt="African mother using MamaAlert app" 
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
@@ -118,14 +128,23 @@ const Home = () => {
       {/* Mission Statement */}
       <section className="py-24 sm:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Bringing quality maternal care closer to women everywhere
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              MamaAlert is designed to make pregnancy safer and more supported for African women. 
-              We offer 24-hour support for early diagnosis, expert care, and personalized health monitoring.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="order-2 lg:order-1">
+              <img 
+                src={careConsultation} 
+                alt="Healthcare professional consultation" 
+                className="w-full h-auto rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="order-1 lg:order-2 space-y-6 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+                Bringing quality maternal care closer to women everywhere
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                MamaAlert is designed to make pregnancy safer and more supported for African women. 
+                We offer 24-hour support for early diagnosis, expert care, and personalized health monitoring.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -133,25 +152,39 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-24 sm:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              What mothers are saying
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 bg-muted/50">
-                <CardContent className="pt-6 space-y-4">
-                  <p className="text-muted-foreground italic leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
-                  <div>
-                    <p className="font-semibold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  What mothers are saying
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Join thousands of mothers who trust MamaAlert for their maternal health journey.
+                </p>
+              </div>
+              <div>
+                <img 
+                  src={communitySupport} 
+                  alt="Community of mothers" 
+                  className="w-full h-auto rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="border-0 bg-muted/50">
+                  <CardContent className="pt-6 space-y-4">
+                    <p className="text-muted-foreground italic leading-relaxed">
+                      "{testimonial.text}"
+                    </p>
+                    <div>
+                      <p className="font-semibold text-foreground">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
