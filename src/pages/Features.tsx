@@ -7,7 +7,7 @@ import {
   Users, Smartphone, Calendar, AlertTriangle,
   Activity, MessageCircle
 } from 'lucide-react';
-import comingSoonImage from '@/assets/coming-soon-mockup.jpg';
+import appDashboard from '@/assets/app-dashboard.png';
 
 const Features = () => {
   const primaryFeatures = [
@@ -163,8 +163,8 @@ const Features = () => {
             <div className="text-center">
               <div className="relative inline-block">
                 <img 
-                  src={comingSoonImage} 
-                  alt="MamaAlert app coming soon preview" 
+                  src={appDashboard} 
+                  alt="MamaAlert app dashboard preview" 
                   className="max-w-md mx-auto rounded-3xl shadow-warm"
                 />
                 <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">

@@ -3,7 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Heart, Shield, Clock, Users, Star, Check, Smartphone } from 'lucide-react';
-import appDashboard from '@/assets/app-dashboard.png';
 
 const Waitlist = () => {
   const benefits = [
@@ -61,38 +60,25 @@ const Waitlist = () => {
       {/* Hero Section */}
       <section className="py-16 sm:py-24 bg-gradient-to-br from-primary/5 via-background to-accent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Smartphone className="w-4 h-4" />
-                <span>Coming November 2025</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
-                Be First to Experience MamaAlert
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-                Join thousands of mothers on the waitlist for the smartest pregnancy and maternal health companion.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm text-muted-foreground justify-center lg:justify-start">
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span>Launch: Nov 15, 2025</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-primary" />
-                  <span>10,000+ joined</span>
-                </div>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Smartphone className="w-4 h-4" />
+              <span>Coming November 2025</span>
             </div>
-            
-            <div className="order-1 lg:order-2">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-variant/20 rounded-3xl blur-3xl"></div>
-                <img 
-                  src={appDashboard} 
-                  alt="MamaAlert app dashboard preview" 
-                  className="relative rounded-3xl shadow-2xl w-full max-w-md mx-auto lg:max-w-full"
-                />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+              Be First to Experience MamaAlert
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
+              Join thousands of mothers on the waitlist for the smartest pregnancy and maternal health companion.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm text-muted-foreground justify-center">
+              <div className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-primary" />
+                <span>Launch: Nov 15, 2025</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Users className="w-5 h-5 text-primary" />
+                <span>10,000+ joined</span>
               </div>
             </div>
           </div>
