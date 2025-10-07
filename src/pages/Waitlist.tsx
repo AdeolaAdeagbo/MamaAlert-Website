@@ -2,7 +2,8 @@ import WaitlistForm from '@/components/WaitlistForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Clock, Users, Star, Check } from 'lucide-react';
+import { Heart, Shield, Clock, Users, Star, Check, Smartphone } from 'lucide-react';
+import appDashboard from '@/assets/app-dashboard.png';
 
 const Waitlist = () => {
   const benefits = [
@@ -58,33 +59,62 @@ const Waitlist = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary/5 via-background to-accent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-                Join the MamaAlert Waitlist
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="text-center lg:text-left order-2 lg:order-1">
+              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Smartphone className="w-4 h-4" />
+                <span>Coming November 2025</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+                Be First to Experience MamaAlert
               </h1>
-              <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Be part of the movement to revolutionize maternal health. Get early access 
-                to features that could save lives and transform how mothers receive care and support.
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
+                Join thousands of mothers on the waitlist for the smartest pregnancy and maternal health companion.
               </p>
-              <div className="flex items-center space-x-6 text-lg">
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-sm text-muted-foreground justify-center lg:justify-start">
                 <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5" />
-                  <span>Launching November 15, 2025</span>
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span>Launch: Nov 15, 2025</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5" />
-                  <span>10,000+ already joined</span>
+                  <Users className="w-5 h-5 text-primary" />
+                  <span>10,000+ joined</span>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-variant/20 rounded-3xl blur-3xl"></div>
+                <img 
+                  src={appDashboard} 
+                  alt="MamaAlert app dashboard preview" 
+                  className="relative rounded-3xl shadow-2xl w-full max-w-md mx-auto lg:max-w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist Form Section */}
+      <section className="py-16 bg-background border-y border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Secure Your Early Access
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Join the waitlist to get exclusive early access when MamaAlert launches.
+              </p>
+            </div>
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-card">
               <WaitlistForm 
-                title="Secure Your Spot"
-                description="Join thousands of mothers already on the waitlist for early access to MamaAlert."
+                title=""
+                description=""
                 compact={false}
               />
             </div>
@@ -93,29 +123,28 @@ const Waitlist = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Why Join the Waitlist?
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Early Access Benefits
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Waitlist members get exclusive perks and first access to the features 
-              that matter most for maternal health and safety.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Be among the first to experience features designed specifically for maternal health.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center border-0 bg-muted/50 hover:bg-muted/70 transition-all duration-300">
-                <CardContent className="pt-8 pb-6">
-                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-6 h-6 text-primary" />
+              <Card key={index} className="text-center border border-border bg-card hover:shadow-card transition-all duration-300">
+                <CardContent className="pt-8 pb-6 px-6">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                  <h3 className="text-base font-semibold text-foreground mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -126,33 +155,32 @@ const Waitlist = () => {
       </section>
 
       {/* Features Preview */}
-      <section className="py-20 bg-trust-light">
+      <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                What You'll Get Access To
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Powerful Features for Modern Mothers
               </h2>
-              <p className="text-xl text-muted-foreground">
-                MamaAlert is packed with features designed specifically for the 
-                unique needs of maternal health and emergency situations.
+              <p className="text-lg text-muted-foreground">
+                Everything you need for a safe and healthy pregnancy journey.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-trust rounded-full flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-trust-foreground" />
+                <div key={index} className="flex items-start space-x-3 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3.5 h-3.5 text-primary-foreground" />
                   </div>
-                  <span className="text-foreground font-medium">{feature}</span>
+                  <span className="text-foreground text-sm font-medium">{feature}</span>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <Button size="lg" asChild>
-                <Link to="/features">Learn More About Features</Link>
+            <div className="text-center mt-10">
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/features">Explore All Features</Link>
               </Button>
             </div>
           </div>
@@ -160,30 +188,35 @@ const Waitlist = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-accent/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              What Mothers Are Saying
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Trusted by Mothers Everywhere
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Real feedback from mothers who've joined our waitlist
+            <p className="text-lg text-muted-foreground">
+              See what mothers on the waitlist are saying
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-card">
+              <Card key={index} className="border border-border bg-card shadow-sm hover:shadow-card transition-shadow">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground italic mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
                     "{testimonial.text}"
                   </p>
-                  <div className="text-sm">
-                    <div className="font-semibold text-foreground">
-                      {testimonial.author}
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Heart className="w-5 h-5 text-primary" />
                     </div>
-                    <div className="text-muted-foreground">
-                      {testimonial.location}
+                    <div className="text-sm">
+                      <div className="font-semibold text-foreground">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-muted-foreground text-xs">
+                        {testimonial.location}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -193,84 +226,23 @@ const Waitlist = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Our Launch Timeline
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Here's what to expect as we work toward making MamaAlert available to all mothers
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-trust rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-6 h-6 text-trust-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Q4 2023 - Foundation Complete
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Core platform development, security implementation, and initial testing with healthcare professionals.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary-foreground font-bold text-sm">2</span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    October 2025 - Beta Testing (Current)
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Limited beta release with waitlist members, gathering feedback and refining features based on real user experiences.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-muted-foreground rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm">3</span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    November 2025 - Public Launch
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Full public release with all core features, 24/7 support, and integration with major healthcare systems.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-primary via-primary to-primary-variant text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Don't Wait - Join Today
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Ready to Join 10,000+ Mothers?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Every mother deserves the best care and support. Be part of the solution 
-              and help us build something truly meaningful for maternal health.
+            <p className="text-lg text-primary-foreground/90 mb-8">
+              Be part of the future of maternal health. Join the waitlist today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3" asChild>
+              <Button size="lg" variant="secondary" className="text-base px-8" asChild>
                 <Link to="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
                   Join Waitlist Now
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+              <Button variant="outline" size="lg" className="text-base px-8 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" asChild>
                 <Link to="/about">Learn Our Story</Link>
               </Button>
             </div>
