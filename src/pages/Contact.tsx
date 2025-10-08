@@ -286,7 +286,7 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <a href="#" className="text-lg px-8 py-3">
+                <a href="https://chat.whatsapp.com/LRlCsQOi99A0N4KUlWfyqB" target="_blank" rel="noopener noreferrer" className="text-lg px-8 py-3">
                   Join WhatsApp Group
                 </a>
               </Button>
