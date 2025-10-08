@@ -1,10 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Clock, MapPin, Phone, Bell } from 'lucide-react';
+import { Heart, Shield, Clock, MapPin, Phone, Bell, Linkedin } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
 import heroImage from '@/assets/hero-maternal-health.jpg';
 import heroBackground from '@/assets/hero-background.jpg';
+import teamBoluwatife from '@/assets/team-boluwatife.png';
+import teamSunday from '@/assets/team-sunday.jpg';
 
 const Home = () => {
   const features = [
@@ -120,6 +122,84 @@ const Home = () => {
                 <p className="text-sm text-muted-foreground">Mothers Waiting</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Team Section */}
+      <section className="py-16 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Meet the Team
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Behind MamaAlert is a team deeply committed to transforming maternal health through technology, compassion, and innovation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Boluwatife Adeagbo */}
+            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                    <img 
+                      src={teamBoluwatife} 
+                      alt="Boluwatife Adeagbo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-1">
+                    Boluwatife Adeagbo
+                  </h3>
+                  <p className="text-sm font-medium text-primary mb-4">
+                    Founder & Software Developer, Maternal Health Advocate
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    Boluwatife leads the vision and development of MamaAlert, combining technology and empathy to tackle maternal health challenges in Africa.
+                  </p>
+                  <a 
+                    href="#" 
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="LinkedIn profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Obazie Sunday Goodness */}
+            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                    <img 
+                      src={teamSunday} 
+                      alt="Obazie Sunday Goodness" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-1">
+                    Obazie Sunday Goodness
+                  </h3>
+                  <p className="text-sm font-medium text-primary mb-4">
+                    Business Strategist
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    Goodness drives MamaAlert's growth and partnerships, ensuring our innovation reaches the women and communities who need it most.
+                  </p>
+                  <a 
+                    href="#" 
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="LinkedIn profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
