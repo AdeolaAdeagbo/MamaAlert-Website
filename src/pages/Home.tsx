@@ -160,7 +160,9 @@ const Home = () => {
                     Boluwatife leads the vision and development of MamaAlert, combining technology and empathy to tackle maternal health challenges in Africa.
                   </p>
                   <a 
-                    href="#" 
+                    href="https://linkedin.com/in/boluwatifeadeagbo" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                     aria-label="LinkedIn profile"
                   >
@@ -191,7 +193,9 @@ const Home = () => {
                     Goodness drives MamaAlert's growth and partnerships, ensuring our innovation reaches the women and communities who need it most.
                   </p>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/in/sunday-obazie-a76549244?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                     aria-label="LinkedIn profile"
                   >
