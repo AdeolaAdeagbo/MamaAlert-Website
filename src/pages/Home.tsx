@@ -7,6 +7,7 @@ import heroImage from '@/assets/hero-maternal-health.jpg';
 import heroBackground from '@/assets/hero-background.jpg';
 import teamBoluwatife from '@/assets/team-boluwatife.png';
 import teamSunday from '@/assets/team-sunday.jpg';
+import teamSamuel from '@/assets/team-samuel.jpg';
 
 const Home = () => {
   const features = [
@@ -138,7 +139,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Boluwatife Adeagbo */}
             <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
               <CardContent className="p-8">
@@ -194,6 +195,39 @@ const Home = () => {
                   </p>
                   <a 
                     href="https://www.linkedin.com/in/sunday-obazie-a76549244?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="LinkedIn profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Samuel Akintunde */}
+            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                    <img 
+                      src={teamSamuel} 
+                      alt="Samuel Akintunde" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-1">
+                    Samuel Akintunde
+                  </h3>
+                  <p className="text-sm font-medium text-primary mb-4">
+                    Product Designer
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    Samuel crafts the beautiful, intuitive experience of MamaAlert, ensuring every interaction is thoughtful and user-centered.
+                  </p>
+                  <a 
+                    href="#" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
