@@ -36,26 +36,29 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent py-20 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 sm:py-32">
+        {/* Decorative gradient orb */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-glow opacity-40 blur-3xl pointer-events-none" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-5xl mx-auto text-center">
             <div className="animate-fade-in">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Heart className="w-4 h-4" />
+              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-sm hover-lift">
+                <Heart className="w-4 h-4 animate-pulse" />
                 <span>Trusted by 10,000+ mothers</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
                 Your Personal{' '}
-                <span className="text-primary">Pregnancy Companion</span>
+                <span className="gradient-text">Pregnancy Companion</span>
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
                 Track your pregnancy, get health insights, and access emergency support—all in one beautiful app.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="text-base px-10 h-12 shadow-lg hover:shadow-xl transition-shadow" asChild>
+                <Button size="lg" variant="premium" asChild>
                   <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
-                <Button variant="outline" size="lg" className="text-base px-10 h-12" asChild>
+                <Button variant="outline" size="lg" asChild>
                   <Link to="/features">Explore Features</Link>
                 </Button>
               </div>
@@ -65,25 +68,26 @@ const Home = () => {
       </section>
 
       {/* Features Preview */}
-      <section className="py-16 sm:py-24 bg-background border-y border-border">
+      <section className="py-20 sm:py-28 bg-gradient-subtle border-y border-border/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6 tracking-tight">
               Everything You Need in One App
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               Designed for modern mothers who deserve the best care.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center border border-border hover:shadow-card transition-all duration-300 bg-card">
-                <CardContent className="pt-8 pb-6 px-6">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                    <feature.icon className="w-7 h-7 text-primary" />
+              <Card key={index} className="group text-center border border-border/50 hover-lift bg-card/50 backdrop-blur-sm overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="pt-10 pb-8 px-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-base font-semibold text-foreground mb-2">
+                  <h3 className="text-lg font-bold text-foreground mb-3">
                     {feature.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -141,14 +145,14 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Boluwatife Adeagbo */}
-            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                     <img 
                       src={teamBoluwatife} 
                       alt="Boluwatife Adeagbo" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1">
@@ -174,14 +178,14 @@ const Home = () => {
             </Card>
 
             {/* Obazie Sunday Goodness */}
-            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                     <img 
                       src={teamSunday} 
                       alt="Obazie Sunday Goodness" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1">
@@ -207,14 +211,14 @@ const Home = () => {
             </Card>
 
             {/* Samuel Akintunde */}
-            <Card className="overflow-hidden border border-border hover:shadow-warm transition-all duration-300">
+            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md">
+                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                     <img 
                       src={teamSamuel} 
                       alt="Samuel Akintunde" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1">

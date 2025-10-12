@@ -27,6 +27,7 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
           soft: "hsl(var(--primary-soft))",
           light: "hsl(var(--primary-light))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -99,11 +100,15 @@ export default {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-warm': 'var(--gradient-warm)',
         'gradient-trust': 'var(--gradient-trust)',
+        'gradient-subtle': 'var(--gradient-subtle)',
+        'gradient-glow': 'var(--gradient-glow)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'warm': 'var(--shadow-warm)',
         'card': 'var(--shadow-card)',
+        'elegant': 'var(--shadow-elegant)',
+        'glow': 'var(--shadow-glow)',
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
