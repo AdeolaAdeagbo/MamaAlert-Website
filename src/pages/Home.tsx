@@ -36,9 +36,10 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 sm:py-32">
-        {/* Decorative gradient orb */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-glow opacity-40 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-primary/5 py-20 sm:py-32">
+        {/* Decorative accent circle */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/30 rounded-full blur-3xl pointer-events-none" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-5xl mx-auto text-center">
@@ -49,7 +50,7 @@ const Home = () => {
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
                 Your Personal{' '}
-                <span className="gradient-text">Pregnancy Companion</span>
+                <span className="text-primary">Pregnancy Companion</span>
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
                 Track your pregnancy, get health insights, and access emergency support—all in one beautiful app.
@@ -68,7 +69,7 @@ const Home = () => {
       </section>
 
       {/* Features Preview */}
-      <section className="py-20 sm:py-28 bg-gradient-subtle border-y border-border/50">
+      <section className="py-20 sm:py-28 bg-accent/20 border-y border-border/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6 tracking-tight">
@@ -82,9 +83,9 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <Card key={index} className="group text-center border border-border/50 hover-lift bg-card/50 backdrop-blur-sm overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="pt-10 pb-8 px-6 relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">
