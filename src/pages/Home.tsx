@@ -22,7 +22,7 @@ import nigerianHealthcareCheckup from '@/assets/nigerian-healthcare-checkup.jpg'
 import teamBoluwatife from '@/assets/team-boluwatife.png';
 
 const Home = () => {
-  usePageSEO({ title: 'Home', description: 'MamaAlert — one app for every stage of motherhood. Cycle tracking, pregnancy care, and postpartum recovery with emergency SOS and AI support.' });
+  usePageSEO({ title: 'Home', description: 'MamaAlert is One App. Every stage of motherhood, with cycle tracking, pregnancy care, postpartum recovery, emergency SOS, and AI support.' });
   return (
     <div className="min-h-screen bg-background">
       {/* ── Hero ── */}
@@ -57,7 +57,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                One app. Every stage of{' '}
+                One App. Every stage of{' '}
               </motion.span>
               <motion.span
                 className="text-primary italic inline-block"

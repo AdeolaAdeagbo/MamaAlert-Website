@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="border-b border-background/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-lg font-semibold">One app. Every stage of motherhood.</h3>
+            <h3 className="text-lg font-semibold">One App. Every stage of motherhood</h3>
             <p className="text-background/60 text-sm mt-1">Download MamaAlert — free on all platforms.</p>
           </div>
           <Button className="rounded-xl gap-2 bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
@@ -93,3 +93,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
