@@ -1,235 +1,184 @@
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Heart, Users, Target, Award } from 'lucide-react';
-import aboutImage from '@/assets/about-mothers-care.jpg';
+import { ArrowRight, Heart, Quote, Download, Flower2, Baby, MapPin, Activity, Shield, Bell, CheckCircle2 } from 'lucide-react';
+import nigerianPregnantPortrait from '@/assets/nigerian-pregnant-portrait.jpg';
+import nigerianNursePortrait from '@/assets/nigerian-nurse-portrait.jpg';
+import nigerianHealthcareCheckup from '@/assets/nigerian-healthcare-checkup.jpg';
+import AnimatedSection from '@/components/AnimatedSection';
+import usePageSEO from '@/hooks/use-page-seo';
+import blackWomanSmile1 from '@/assets/black-woman-smile-1.jpg';
+import teamBoluwatife from '@/assets/team-boluwatife.png';
 
 const About = () => {
+  usePageSEO({ title: 'About Us', description: 'Learn about MamaAlert\'s mission to support every woman through menstrual health, pregnancy, and postpartum recovery in Africa.' });
   const values = [
-    {
-      icon: Heart,
-      title: "Compassionate Care",
-      description: "Every feature is designed with deep empathy for the maternal journey and its unique challenges."
-    },
-    {
-      icon: Users,
-      title: "Community First",
-      description: "Building a supportive network where mothers can access help and connect with resources instantly."
-    },
-    {
-      icon: Target,
-      title: "Precision Health",
-      description: "Using technology to provide timely, relevant, and actionable health insights when they matter most."
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "Committed to the highest standards of safety, privacy, and reliability in maternal healthcare technology."
-    }
+    { icon: <MapPin className="w-7 h-7 text-primary" />, title: 'Community First', description: 'Building a supportive network where women can access help and connect with resources instantly.' },
+    { icon: <Activity className="w-7 h-7 text-primary" />, title: 'Precision Health', description: 'Using technology to provide timely, relevant, and actionable health insights when they matter most.' },
+    { icon: <Shield className="w-7 h-7 text-primary" />, title: 'Excellence', description: 'Committed to the highest standards of safety, privacy, and reliability in women\'s health technology.' },
+    { icon: <Bell className="w-7 h-7 text-primary" />, title: 'Compassionate Care', description: 'Every feature is designed with deep empathy for the unique challenges women face at every stage.' },
+  ];
+
+  const problems = [
+    { title: 'Emergency Response Gaps', description: 'Critical minutes lost during emergencies because support systems aren\'t designed for women\'s health.', color: 'border-l-pregnancy' },
+    { title: 'Fragmented Cycle Tracking', description: 'Women struggle to track their cycles, symptoms, and health patterns across disconnected tools.', color: 'border-l-menstrual' },
+    { title: 'Limited Postpartum Support', description: 'New mothers are often left without guidance during the critical recovery period after birth.', color: 'border-l-postpartum' },
+    { title: 'Generic Solutions', description: 'Existing health apps ignore the unique complexities of women\'s health in Africa.', color: 'border-l-primary' },
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+    <div className="min-h-screen bg-background">
+      {/* Hero */}
+      <section className="pt-16 pb-12 lg:pt-24 lg:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Our Mission: <span className="text-primary">Every Mother Matters</span>
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8">
+              <Heart className="w-4 h-4" />
+              <span>Our Mission</span>
+            </div>
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8 tracking-tight">
+              Every woman <span className="text-primary italic">matters</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              MamaAlert was born from a simple yet powerful belief: every mother deserves 
-              access to the best care, support, and emergency response system, regardless 
-              of where she is or what time it is.
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
+              MamaAlert was born from a simple belief: every woman deserves access to the best care, support, and emergency response — at every stage of her journey.
             </p>
-          </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-menstrual/10 text-menstrual">Menstrual Care</span>
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-pregnancy/10 text-pregnancy">Pregnancy Support</span>
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-postpartum/10 text-postpartum">Postpartum Recovery</span>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-20 bg-background">
+
+      {/* Problems */}
+      <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                The Story Behind MamaAlert
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                 <p>
-                   It was 3 AM when the call came. A mother, alone in her small apartment, 
-                   experiencing complications she had never felt before. Her husband was away, 
-                   family members hours away, and she didn't know if what she was feeling was 
-                   normal or life-threatening. In that terrifying moment of uncertainty, she 
-                   realized how isolated and vulnerable she truly was.
-                 </p>
-                 <p>
-                   This story isn't unique. Across Africa, countless mothers face similar moments 
-                   of fear and isolation. They carry life within them, yet often lack immediate 
-                   access to the knowledge, support, and emergency response systems that could 
-                   save both their lives and their babies'. Some have to walk miles to reach the 
-                   nearest clinic. Others simply don't know when a symptom requires urgent attention.
-                 </p>
-                 <p>
-                   Too many mothers suffer in silence, not because help doesn't exist, but because 
-                   the gap between them and that help feels impossible to bridge. Every year, 
-                   preventable complications take mothers from their families simply because the 
-                   right information didn't reach them at the right time.
-                 </p>
-                 <p>
-                   MamaAlert was born from this pain—from the recognition that no mother should 
-                   face her health journey alone. This platform emerged from years of listening 
-                   to mothers' stories, understanding their fears, and witnessing the devastating 
-                   consequences of delayed care. The vision was shaped by Boluwatife Adeagbo, 
-                   whose passion for maternal health and deep understanding of these challenges 
-                   drove the creation of this life-saving technology.
-                 </p>
-              </div>
-              <div className="mt-8">
-                <Button size="lg" asChild>
-                  <Link to="/features">See How We Help</Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-warm">
-                <img 
-                  src={aboutImage} 
-                  alt="Diverse mothers and healthcare community" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                The Problem We're Solving
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Maternal health challenges affect millions of women worldwide, 
-                and technology hasn't kept pace with their needs.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="border-l-4 border-l-primary bg-background">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Emergency Response Gaps
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Critical minutes lost during emergencies because support systems 
-                    aren't designed for maternal health situations.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-primary bg-background">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Fragmented Care
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Information scattered across multiple apps and systems, 
-                    making it hard to get comprehensive health insights.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-primary bg-background">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Limited Support Networks
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Many mothers lack immediate access to healthcare professionals 
-                    and support communities when they need them most.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-primary bg-background">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    Generic Solutions
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Existing health apps treat all users the same, ignoring the 
-                    unique complexities of maternal health journeys.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Our Core Values
+          <AnimatedSection className="max-w-2xl mx-auto text-center mb-16">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-5">
+              The problem we're <span className="italic text-primary">solving</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              These principles guide every decision we make and every feature we build.
+            <p className="text-lg text-muted-foreground">
+              Women's health challenges affect millions — technology hasn't kept pace.
             </p>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {value.description}
-                </p>
-              </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {problems.map((p, i) => (
+              <AnimatedSection key={i} delay={i * 0.08} className={`bg-card rounded-3xl p-8 shadow-md border-l-4 ${p.color} hover:shadow-lg transition-shadow`}>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{p.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-trust-light">
+      {/* Values */}
+      <section className="py-20 lg:py-28 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Led by Maternal Health Advocates
+          <AnimatedSection className="max-w-2xl mx-auto text-center mb-16">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-5">
+              Our core <span className="italic text-primary">values</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              Our team combines deep expertise in healthcare, technology, and emergency 
-              response with personal experience in maternal health challenges.
-            </p>
+          </AnimatedSection>
 
-            <div className="bg-white rounded-2xl p-8 shadow-card">
-              <blockquote className="text-lg text-muted-foreground italic mb-6">
-                "Every line of code we write, every feature we design, is guided by one question: 
-                'Will this make a mother's life safer, healthier, and more supported?' 
-                That's not just our mission—it's our promise."
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {values.map((v, i) => (
+              <AnimatedSection key={i} delay={i * 0.08} className="group">
+                <div className="bg-card rounded-3xl p-8 text-center shadow-md hover:shadow-lg transition-all h-full">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                    {v.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{v.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{v.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-3">How It Works</span>
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground leading-tight">
+              Get started in <span className="italic text-primary">3 steps</span>
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { num: '1', icon: <CheckCircle2 className="w-6 h-6 text-primary" />, img: nigerianPregnantPortrait, title: 'Create your profile', desc: 'Tell us about your pregnancy, health history, and preferences.' },
+              { num: '2', icon: <Activity className="w-6 h-6 text-primary" />, img: nigerianNursePortrait, title: 'Get personalized care', desc: 'Receive tailored insights, reminders, and emergency support.' },
+              { num: '3', icon: <Heart className="w-6 h-6 text-primary" />, img: nigerianHealthcareCheckup, title: 'Stay connected', desc: 'Access 24/7 support and connect with healthcare professionals.' },
+            ].map((step, i) => (
+              <AnimatedSection key={i} delay={i * 0.12}>
+                <div className="group relative bg-card rounded-3xl border border-border/40 overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all h-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={step.img} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                    <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
+                      {step.num}
+                    </div>
+                  </div>
+                  <div className="p-6 pt-2">
+                    <div className="flex items-center gap-2 mb-2">
+                      {step.icon}
+                      <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section className="py-20 lg:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <div className="bg-card rounded-[2rem] p-10 lg:p-14 shadow-lg relative">
+              <Quote className="w-10 h-10 text-primary/15 absolute top-8 left-8" />
+              <blockquote className="text-xl lg:text-2xl text-muted-foreground italic text-center pt-6 mb-8 leading-relaxed">
+                "Every line of code we write, every feature we design, is guided by one question: 'Will this make a woman's life safer?' That's not just our mission — it's our promise."
               </blockquote>
-               <div className="text-foreground font-semibold">
-                 — Boluwatife Adeagbo, Founder of MamaAlert
-               </div>
+              <div className="text-center">
+                <img src={teamBoluwatife} alt="Boluwatife Adeagbo" className="w-16 h-16 mx-auto mb-3 rounded-full object-cover ring-2 ring-primary/20" />
+                <p className="text-foreground font-semibold">Boluwatife Adeagbo</p>
+                <p className="text-sm text-primary">Founder of MamaAlert</p>
+              </div>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-            <div className="mt-12">
-              <Button size="lg" asChild>
+      {/* CTA */}
+      <section className="py-20 lg:py-28 bg-primary/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mx-auto text-center">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-6 leading-tight">
+              Join our <span className="italic text-primary">mission</span>
+            </h2>
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+              Whether you're tracking your cycle, expecting, or a new mum — there's a place for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="h-14 px-10 rounded-2xl text-base shadow-lg gap-2" asChild>
+                <a href="https://mamalert.com/app" target="_blank" rel="noopener noreferrer">
+                  <Download className="w-5 h-5" />
+                  Get Started Free
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl text-base" asChild>
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

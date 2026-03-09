@@ -1,13 +1,21 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, MapPin, Phone, Clock, Send, MessageSquare } from 'lucide-react';
+import { Clock, Send, ArrowRight, MessageCircle, AlertTriangle, Users } from 'lucide-react';
+import AnimatedSection from '@/components/AnimatedSection';
+import { supabase } from '@/integrations/supabase/client';
+import usePageSEO from '@/hooks/use-page-seo';
+import nigerianNursePortrait from '@/assets/nigerian-nurse-portrait.jpg';
+import nigerianPregnantPortrait from '@/assets/nigerian-pregnant-portrait.jpg';
+import iconBell3d from '@/assets/icon-bell-3d.png';
+import iconHealth3d from '@/assets/icon-health-3d.png';
+import iconLocation3d from '@/assets/icon-location-3d.png';
 
 const Contact = () => {
+  usePageSEO({ title: 'Contact Us', description: 'Get in touch with the MamaAlert team. We\'re here to help with questions about cycle tracking, pregnancy support, and postpartum care.' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,8 +49,16 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      // TODO: Connect to Supabase or email service
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{
+          name: formData.name.trim(),
+          email: formData.email.trim().toLowerCase(),
+          subject: formData.subject.trim() || null,
+          message: formData.message.trim(),
+        }]);
+
+      if (error) throw error;
       
       toast({
         title: "Message sent successfully!",
@@ -70,233 +86,264 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: Mail,
+      icon: iconHealth3d,
       title: "Email Us",
       content: "mymamalert@gmail.com",
       description: "For general inquiries and support"
     },
     {
-      icon: Phone,
+      icon: iconBell3d,
       title: "Call Us",
       content: "+2347065790166",
-      description: "Monday to Friday, 9 AM - 6 PM EST"
+      description: "Monday to Friday, 9 AM - 6 PM WAT"
     },
     {
-      icon: MapPin,
+      icon: iconLocation3d,
       title: "Location",
       content: "Supporting mothers across Africa",
       description: "Focused on maternal health in Nigeria and beyond"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "When will MamaAlert be available?",
+      answer: "MamaAlert is now live! Download from our app page to get started."
     },
     {
-      icon: Clock,
-      title: "Response Time",
-      content: "Within 24 hours",
-      description: "We respond to all inquiries promptly"
+      question: "Is MamaAlert free to use?",
+      answer: "Core safety features will always be free. Premium features available with subscription."
+    },
+    {
+      question: "How secure is my health data?",
+      answer: "We're HIPAA compliant with end-to-end encryption. Your privacy is our priority."
     }
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="relative pt-16 pb-12 lg:pt-24 lg:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Get in <span className="text-primary">Touch</span>
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-3 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-medium mb-8">
+              <MessageCircle className="w-4 h-4" />
+              <span>Get in Touch</span>
+            </div>
+            
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-[72px] text-foreground leading-[1.05] mb-8 tracking-tight">
+              We'd love to
+              <br />
+              <span className="text-primary italic">hear from you</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Have questions about MamaAlert? Want to learn more about our mission? 
-              We'd love to hear from you. Our team is here to help.
+            
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
+              Have questions about MamaAlert? Whether it's about cycle tracking, pregnancy support, or postpartum care — we're here to help.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-background">
+      <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card className="border-0 shadow-card">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground flex items-center">
-                    <MessageSquare className="w-6 h-6 mr-3 text-primary" />
-                    Send us a Message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          placeholder="Enter your full name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                    </div>
-                    
+            <AnimatedSection direction="left" className="lg:col-span-3">
+              <div className="bg-card rounded-3xl p-8 lg:p-12 shadow-lg border border-border/30">
+                <div className="flex items-center gap-4 mb-8">
+                  <img src={nigerianNursePortrait} alt="" className="w-14 h-14 rounded-full object-cover" />
+                  <div>
+                    <h2 className="text-2xl font-semibold text-foreground">Send us a message</h2>
+                    <p className="text-muted-foreground">We'll respond within 24 hours</p>
+                  </div>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
+                      <Label htmlFor="name" className="text-foreground font-medium">Full Name *</Label>
                       <Input
-                        id="subject"
-                        name="subject"
+                        id="name"
+                        name="name"
                         type="text"
-                        placeholder="What's this about?"
-                        value={formData.subject}
+                        placeholder="Enter your full name"
+                        value={formData.name}
                         onChange={handleChange}
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us how we can help you..."
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={6}
+                        className="h-12 rounded-xl border-border/50 focus:border-primary"
                         required
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
-                      disabled={isLoading}
-                      size="lg"
-                    >
-                      {isLoading ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                    
-                    <p className="text-sm text-muted-foreground text-center">
-                      * Required fields. We'll respond within 24 hours.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Contact Information
-                </h2>
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">
-                          {info.title}
-                        </h3>
-                        <p className="text-foreground font-medium mb-1">
-                          {info.content}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {info.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* FAQ Quick Links */}
-              <Card className="border-0 bg-muted/50">
-                <CardHeader>
-                  <CardTitle className="text-lg">Quick Questions?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">When will MamaAlert be available?</h4>
-                      <p className="text-xs text-muted-foreground">We're launching November 15th, 2025. Join the waitlist for updates!</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">Is MamaAlert free to use?</h4>
-                      <p className="text-xs text-muted-foreground">Core safety features will always be free. Premium features available with subscription.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">How secure is my health data?</h4>
-                      <p className="text-xs text-muted-foreground">We're HIPAA compliant with end-to-end encryption. Your privacy is our priority.</p>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-foreground font-medium">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="h-12 rounded-xl border-border/50 focus:border-primary"
+                        required
+                      />
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="text-foreground font-medium">Subject</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      placeholder="What's this about?"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="h-12 rounded-xl border-border/50 focus:border-primary"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-foreground font-medium">Message *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell us how we can help you..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={6}
+                      className="rounded-xl border-border/50 focus:border-primary resize-none"
+                      required
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full h-14 text-base rounded-full shadow-lg hover:shadow-xl transition-shadow" 
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </div>
+            </AnimatedSection>
+
+            {/* Contact Information */}
+            <AnimatedSection direction="right" className="lg:col-span-2 space-y-8">
+              {/* Contact Cards */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-foreground mb-6">Contact Information</h3>
+                {contactInfo.map((info, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-card rounded-2xl p-6 shadow-lg border border-border/30 hover:shadow-xl transition-shadow"
+                  >
+                    <div className="flex items-start gap-4">
+                      <img src={info.icon} alt="" className="w-10 h-10" />
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
+                        <p className="text-foreground font-medium text-sm mb-1">{info.content}</p>
+                        <p className="text-xs text-muted-foreground">{info.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Response Time */}
+              <div className="bg-primary/5 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-2">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <h4 className="font-semibold text-foreground">Response Time</h4>
+                </div>
+                <p className="text-muted-foreground text-sm">
+                  We typically respond within 24 hours during business days.
+                </p>
+              </div>
 
               {/* Emergency Notice */}
-              <Card className="border-l-4 border-l-destructive bg-destructive/5">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-destructive mb-2">
-                    Medical Emergency?
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    If you're experiencing a medical emergency, please call 911 
-                    immediately or contact your healthcare provider. Pregnant women in danger 
-                    can also use our USSD feature by dialing *123*456# for emergency assistance. 
-                    This form is not monitored for emergency situations.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+              <div className="bg-destructive/5 border border-destructive/20 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <AlertTriangle className="w-5 h-5 text-destructive" />
+                  <h4 className="font-semibold text-destructive">Medical Emergency?</h4>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  If you're experiencing a medical emergency, please call emergency services immediately. 
+                  Use our USSD feature by dialing *123*456# for emergency assistance.
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Join Community */}
-      <section className="py-20 bg-primary-light">
+      {/* FAQ Section */}
+      <section className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Join Our Community
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-6">
+              Frequently <span className="italic text-primary">asked</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Connect with other mothers, share experiences, and stay updated 
-              on the latest maternal health resources and MamaAlert developments.
+            <p className="text-lg text-muted-foreground">
+              Quick answers to common questions about MamaAlert.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {faqs.map((faq, index) => (
+              <AnimatedSection 
+                key={index}
+                delay={index * 0.1}
+                className="bg-card rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <h3 className="font-semibold text-foreground mb-3">{faq.question}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section className="py-20 lg:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <img 
+                src={nigerianPregnantPortrait} 
+                alt="" 
+                className="w-24 h-24 mx-auto rounded-full object-cover shadow-lg ring-4 ring-primary/20"
+              />
+            </div>
+            
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-8 leading-tight">
+              Join our <span className="italic text-primary">community</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              Connect with other women, share experiences, and stay updated 
+              on the latest health resources — from cycle care to postpartum recovery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <a href="https://chat.whatsapp.com/LRlCsQOi99A0N4KUlWfyqB" target="_blank" rel="noopener noreferrer" className="text-lg px-8 py-3">
+              <Button size="lg" className="h-14 px-10 rounded-2xl text-base shadow-lg gap-2" asChild>
+                <a href="https://chat.whatsapp.com/LRlCsQOi99A0N4KUlWfyqB" target="_blank" rel="noopener noreferrer">
+                  <Users className="w-5 h-5" />
                   Join WhatsApp Group
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a href="#" className="text-lg px-8 py-3">
-                  Become a Volunteer
+              <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl text-base" asChild>
+                <a href="https://mamalert.com/app" target="_blank" rel="noopener noreferrer">
+                  Download App
+                  <ArrowRight className="w-5 h-5" />
                 </a>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

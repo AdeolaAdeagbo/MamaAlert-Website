@@ -1,285 +1,289 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Clock, MapPin, Phone, Bell, Linkedin } from 'lucide-react';
-import WaitlistForm from '@/components/WaitlistForm';
-import heroImage from '@/assets/hero-maternal-health.jpg';
-import heroBackground from '@/assets/hero-background.jpg';
+import { ArrowRight, Download, Star, Shield, Heart, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import AnimatedSection from '@/components/AnimatedSection';
+import PathTracer from '@/components/PathTracer';
+import FloatingParticles from '@/components/FloatingParticles';
+import usePageSEO from '@/hooks/use-page-seo';
+
+import nigerianWomanHero from '@/assets/nigerian-woman-hero.jpg';
+import billboard from '@/assets/mamaalert-billboard.png';
+import appDashboard from '@/assets/app-dashboard.png';
+import appNuraChat from '@/assets/app-nura-chat.png';
+import appOnboarding from '@/assets/app-onboarding.png';
+import appMenstrualDashboard from '@/assets/app-menstrual-dashboard.png';
+import nigerianPregnantPortrait from '@/assets/nigerian-pregnant-portrait.jpg';
+import nigerianNursePortrait from '@/assets/nigerian-nurse-portrait.jpg';
+import blackWomanSmile1 from '@/assets/black-woman-smile-1.jpg';
+import africanWomanSmile from '@/assets/option-1-african-woman.jpg';
+import africanPregnantMother from '@/assets/african-pregnant-mother.jpg';
+import nigerianHealthcareCheckup from '@/assets/nigerian-healthcare-checkup.jpg';
 import teamBoluwatife from '@/assets/team-boluwatife.png';
-import teamSunday from '@/assets/team-sunday.jpg';
-import teamSamuel from '@/assets/team-samuel.jpg';
 
 const Home = () => {
-  const features = [
-    {
-      icon: Bell,
-      title: "Smart Alerts",
-      description: "Intelligent notifications for appointments, medication, and health milestones"
-    },
-    {
-      icon: Phone,
-      title: "Emergency Response & USSD",
-      description: "Instant emergency contacts, USSD dialing for danger situations, and location sharing"
-    },
-    {
-      icon: MapPin,
-      title: "Location Support",
-      description: "Find nearby healthcare facilities, pharmacies, and support services"
-    },
-    {
-      icon: Shield,
-      title: "Health Tracking",
-      description: "Monitor maternal health indicators and receive personalized insights"
-    }
-  ];
-
+  usePageSEO({ title: 'Home', description: 'MamaAlert — one app for every stage of motherhood. Cycle tracking, pregnancy care, and postpartum recovery with emergency SOS and AI support.' });
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-primary/5 py-20 sm:py-32">
-        {/* Decorative accent circle */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/30 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-background">
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--primary)/0.12),transparent)]" />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="animate-fade-in">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-sm hover-lift">
-                <Heart className="w-4 h-4 animate-pulse" />
-                <span>Trusted by 10,000+ mothers</span>
+        
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 relative">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8"
+            >
+              <motion.span
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              >
+                <Sparkles className="w-4 h-4" />
+              </motion.span>
+              <span>Now Available on App Stores</span>
+            </motion.div>
+
+            {/* Headline — staggered lines */}
+            <h1 className="font-serif text-[2.75rem] sm:text-6xl lg:text-[4.25rem] text-foreground leading-[1.08] tracking-tight mb-6">
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                One app. Every stage of{' '}
+              </motion.span>
+              <motion.span
+                className="text-primary italic inline-block"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: [1, 1.03, 1],
+                }}
+                transition={{ 
+                  opacity: { duration: 0.7, delay: 0.45 },
+                  y: { duration: 0.7, delay: 0.45 },
+                  scale: { duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 },
+                }}
+              >
+                motherhood
+              </motion.span>
+            </h1>
+
+            {/* Subtext */}
+            <motion.p
+              className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              From your first cycle to pregnancy and beyond — MamaAlert adapts to wherever you are in your journey.
+            </motion.p>
+          </div>
+
+          {/* Billboard */}
+          <motion.div
+            className="max-w-5xl mx-auto mb-10"
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="rounded-3xl overflow-hidden shadow-xl">
+              <img src={billboard} alt="MamaAlert — Menstrual, Pregnancy, and Postpartum modes" className="w-full h-auto" />
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
+            <div className="flex flex-wrap gap-4 justify-center mb-10">
+              <a href="https://play.google.com/store/apps/details?id=com.mamalert.app" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
+              </a>
+              <a href="https://apps.apple.com/app/mamalert/id0000000000" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-10" />
+              </a>
+            </div>
+
+            {/* Social proof */}
+            <div className="flex items-center gap-6 text-sm text-muted-foreground justify-center">
+              <div className="flex -space-x-3">
+                <img src={blackWomanSmile1} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-background" />
+                <img src={africanPregnantMother} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-background" />
+                <img src={nigerianNursePortrait} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-background" />
+                <div className="w-10 h-10 rounded-full bg-primary/10 ring-2 ring-background flex items-center justify-center text-xs font-bold text-primary">+5k</div>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-                Your Personal{' '}
-                <span className="text-primary">Pregnancy Companion</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
-                Track your pregnancy, get health insights, and access emergency support—all in one beautiful app.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="premium" asChild>
-                  <Link to="/waitlist">Join Waitlist</Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/features">Explore Features</Link>
-                </Button>
+              <div>
+                <div className="flex items-center gap-1 text-foreground font-semibold">
+                  <Star className="w-4 h-4 text-primary fill-primary" />
+                  4.9
+                </div>
+                <span className="text-xs">from early users</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Preview */}
-      <section className="py-20 sm:py-28 bg-accent/20 border-y border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6 tracking-tight">
-              Everything You Need in One App
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Designed for modern mothers who deserve the best care.
-            </p>
-          </div>
+      {/* ── Trusted strip ── */}
+      <section className="border-y border-border/50 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <AnimatedSection className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+            { value: '10K+', label: 'Mothers Joined' },
+            { value: '24/7', label: 'Emergency Support' },
+            { value: '6+', label: 'African Languages' },
+            { value: '100%', label: 'Private & Secure' }].
+            map((stat) =>
+            <div key={stat.label}>
+                <div className="text-3xl sm:text-4xl font-serif font-medium text-foreground">{stat.value}</div>
+                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+              </div>
+            )}
+          </AnimatedSection>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <Card key={index} className="group text-center border border-border/50 hover-lift bg-card/50 backdrop-blur-sm overflow-hidden relative">
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardContent className="pt-10 pb-8 px-6 relative">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                    <feature.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
+      {/* ── App Preview ── */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-5">
+              See the <span className="italic text-primary">app</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              A glimpse into MamaAlert — from onboarding to daily tracking and AI-powered support.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto items-end">
+            {[
+              { img: appOnboarding, label: 'Personalized Onboarding', color: 'text-primary' },
+              { img: appMenstrualDashboard, label: 'Menstrual Dashboard', color: 'text-menstrual' },
+              { img: appNuraChat, label: 'Nura AI Assistant', color: 'text-pregnancy' },
+            ].map((screen, i) => (
+              <AnimatedSection key={i} delay={i * 0.12} className="flex flex-col items-center">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-border/30 bg-card max-w-[260px] w-full">
+                  <img src={screen.img} alt={screen.label} className="w-full h-auto" />
+                </div>
+                <p className={`mt-4 font-semibold text-sm ${screen.color}`}>{screen.label}</p>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-16 sm:py-24 bg-accent/50">
+      {/* ── Testimonials ── */}
+
+
+      {/* ── Testimonials ── */}
+      <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-8 h-8 text-primary" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Built with Healthcare Professionals
+          <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-5">
+              What mothers are <span className="italic text-primary">saying</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto">
-              Designed in collaboration with maternal health experts and trusted by mothers worldwide.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 text-center">
-              <div>
-                <div className="text-4xl sm:text-5xl font-bold text-primary mb-2">24/7</div>
-                <p className="text-sm text-muted-foreground">Emergency Support</p>
-              </div>
-              <div>
-                <div className="text-4xl sm:text-5xl font-bold text-primary mb-2">100%</div>
-                <p className="text-sm text-muted-foreground">Private & Secure</p>
-              </div>
-              <div>
-                <div className="text-4xl sm:text-5xl font-bold text-primary mb-2">10K+</div>
-                <p className="text-sm text-muted-foreground">Mothers Waiting</p>
-              </div>
-            </div>
+            <p className="text-lg text-muted-foreground">Real stories from real mothers using MamaAlert.</p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+            {
+              text: "MamaAlert literally saved my life. I had a complication at 2 AM and the SOS feature connected me to help within minutes. Every pregnant woman needs this app.",
+              name: "Adunni O.",
+              location: "Lagos, Nigeria",
+              image: blackWomanSmile1,
+              rating: 5
+            },
+            {
+              text: "The health tracking and Iyabot assistant helped me understand what was normal and what wasn't during my first pregnancy. I felt so much less anxious knowing I had support.",
+              name: "Kemi A.",
+              location: "Abuja, Nigeria",
+              image: africanPregnantMother,
+              rating: 5
+            },
+            {
+              text: "As a nurse in a rural clinic, I recommend MamaAlert to every expectant mother. The USSD emergency feature works even without internet — that's a game changer for our community.",
+              name: "Ngozi E.",
+              location: "Enugu, Nigeria",
+              image: nigerianNursePortrait,
+              rating: 5
+            }].
+            map((t, i) =>
+            <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="bg-card rounded-3xl p-8 border border-border/40 hover:shadow-lg transition-all h-full flex flex-col">
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: t.rating }).map((_, j) =>
+                  <Star key={j} className="w-4 h-4 text-primary fill-primary" />
+                  )}
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed flex-1 mb-6">"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <img src={t.image} alt={t.name} className="w-11 h-11 rounded-full object-cover ring-2 ring-border" />
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                      <p className="text-xs text-muted-foreground">{t.location}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Meet the Team Section */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Meet the Team
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Behind MamaAlert is a team deeply committed to transforming maternal health through technology, compassion, and innovation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Boluwatife Adeagbo */}
-            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                    <img 
-                      src={teamBoluwatife} 
-                      alt="Boluwatife Adeagbo" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection className="bg-card rounded-[2rem] p-10 lg:p-16 shadow-lg border border-border/30">
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <div className="flex-shrink-0">
+                  <img
+                    src={teamBoluwatife}
+                    alt="Boluwatife Adeagbo"
+                    className="w-36 h-36 rounded-full object-cover shadow-xl ring-4 ring-primary/20" />
+                  
+                </div>
+                <div>
+                  <h2 className="font-serif text-3xl sm:text-4xl text-foreground mb-4">
+                    Meet the <span className="italic text-primary">founder</span>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    MamaAlert was born from a powerful belief: no mother should face her health journey alone. 
+                    <strong className="text-foreground"> Boluwatife Adeagbo</strong> combined deep empathy for maternal health 
+                    challenges in Africa with technology to create a life-saving platform.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="text-foreground font-semibold">Boluwatife Adeagbo</span>
+                    <span className="text-primary text-sm font-medium">Founder & Developer</span>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">
-                    Boluwatife Adeagbo
-                  </h3>
-                  <p className="text-sm font-medium text-primary mb-4">
-                    Founder & Software Developer, Maternal Health Advocate
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    Boluwatife leads the vision and development of MamaAlert, combining technology and empathy to tackle maternal health challenges in Africa.
-                  </p>
-                  <a 
-                    href="https://linkedin.com/in/boluwatifeadeagbo" 
+                  <a
+                    href="https://linkedin.com/in/boluwatifeadeagbo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="LinkedIn profile"
-                  >
-                    <Linkedin className="w-5 h-5" />
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline mt-3">
+                    
+                    Connect on LinkedIn <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Obazie Sunday Goodness */}
-            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                    <img 
-                      src={teamSunday} 
-                      alt="Obazie Sunday Goodness" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">
-                    Obazie Sunday Goodness
-                  </h3>
-                  <p className="text-sm font-medium text-primary mb-4">
-                    Business Strategist
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    Goodness drives MamaAlert's growth and partnerships, ensuring our innovation reaches the women and communities who need it most.
-                  </p>
-                  <a 
-                    href="https://www.linkedin.com/in/sunday-obazie-a76549244?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="LinkedIn profile"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Samuel Akintunde */}
-            <Card className="group overflow-hidden border border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-40 h-40 mb-6 rounded-2xl overflow-hidden shadow-md ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                    <img 
-                      src={teamSamuel} 
-                      alt="Samuel Akintunde" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">
-                    Samuel Akintunde
-                  </h3>
-                  <p className="text-sm font-medium text-primary mb-4">
-                    Product Designer
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    Samuel crafts the beautiful, intuitive experience of MamaAlert, ensuring every interaction is thoughtful and user-centered.
-                  </p>
-                  <a 
-                    href="#" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="LinkedIn profile"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary via-primary to-primary-variant text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Join 10,000+ Mothers on the Waitlist
-            </h2>
-            <p className="text-lg text-primary-foreground/90 mb-10">
-              Be the first to know when MamaAlert launches. Get exclusive early access.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="text-base px-10 h-12 shadow-lg hover:shadow-xl transition-shadow"
-                asChild
-              >
-                <Link to="/waitlist">Join Waitlist</Link>
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-base px-10 h-12 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
-                <Link to="/about">Our Story</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Home;

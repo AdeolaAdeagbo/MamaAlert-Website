@@ -26,6 +26,16 @@
     --primary-variant: 345 100% 57%;
     --primary-glow: 345 90% 75%;
     
+    /* Mode colors — Menstrual (Orange), Pregnancy (Pink/Primary), Postpartum (Purple) */
+    --mode-menstrual: 28 100% 55%;
+    --mode-menstrual-foreground: 0 0% 100%;
+    --mode-menstrual-light: 28 100% 95%;
+    --mode-pregnancy: 345 100% 67%;
+    --mode-pregnancy-foreground: 0 0% 100%;
+    --mode-pregnancy-light: 345 100% 97%;
+    --mode-postpartum: 270 70% 55%;
+    --mode-postpartum-foreground: 0 0% 100%;
+    --mode-postpartum-light: 270 70% 95%;
     /* Secondary colors - Clean, professional */
     --secondary: 240 5% 96%;
     --secondary-foreground: 240 10% 10%;
@@ -109,6 +119,16 @@
     --primary-light: 345 100% 20%;
     --primary-variant: 345 100% 75%;
 
+    /* Mode colors - Dark mode */
+    --mode-menstrual: 28 100% 55%;
+    --mode-menstrual-foreground: 0 0% 100%;
+    --mode-menstrual-light: 28 100% 15%;
+    --mode-pregnancy: 345 100% 67%;
+    --mode-pregnancy-foreground: 0 0% 100%;
+    --mode-pregnancy-light: 345 100% 15%;
+    --mode-postpartum: 270 70% 55%;
+    --mode-postpartum-foreground: 0 0% 100%;
+    --mode-postpartum-light: 270 70% 15%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 

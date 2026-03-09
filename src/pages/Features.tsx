@@ -1,267 +1,166 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { 
-  Bell, Phone, MapPin, Shield, Heart, Clock, 
-  Users, Smartphone, Calendar, AlertTriangle,
-  Activity, MessageCircle
-} from 'lucide-react';
-import appDashboard from '@/assets/app-dashboard.png';
+import { ArrowRight, Heart, Flower2, Baby, Bell, LocateFixed, AlertTriangle, Activity, Calendar, Lock, Users, Sparkles, CheckCircle } from 'lucide-react';
+import AnimatedSection from '@/components/AnimatedSection';
+import usePageSEO from '@/hooks/use-page-seo';
+import nigerianPregnantPortrait from '@/assets/nigerian-pregnant-portrait.jpg';
+import menstrualModeWoman from '@/assets/menstrual-mode-woman.jpg';
+import modePostpartumWoman from '@/assets/mode-postpartum-woman.jpg';
+
+const modeFeatures = [
+  {
+    title: 'Menstrual Mode',
+    tagline: 'Track Your Cycle',
+    description: 'Understand your body with smart cycle tracking, symptom logging, and personalized insights.',
+    icon: <Flower2 className="w-6 h-6" />,
+    image: menstrualModeWoman,
+    color: 'menstrual' as const,
+    features: [
+      { icon: <Activity className="w-5 h-5" />, title: 'Cycle & Symptom Tracking', description: 'Log periods, symptoms, mood, and energy levels with smart predictions.' },
+      { icon: <Bell className="w-5 h-5" />, title: 'Smart Period Alerts', description: 'Get timely reminders for upcoming periods, fertile windows, and medication.' },
+      { icon: <Calendar className="w-5 h-5" />, title: 'Appointment Management', description: 'Schedule and track gynecology appointments with automated reminders.' },
+      { icon: <Users className="w-5 h-5" />, title: 'Community Support', description: 'Connect with other women and healthcare professionals in your area.' },
+    ],
+  },
+  {
+    title: 'Pregnancy Mode',
+    tagline: 'Stay Ahead of Risks',
+    description: 'Protect your baby with AI-powered health tracking, emergency SOS, and 24/7 support.',
+    icon: <Heart className="w-6 h-6" />,
+    image: nigerianPregnantPortrait,
+    color: 'pregnancy' as const,
+    features: [
+      { icon: <AlertTriangle className="w-5 h-5" />, title: 'Emergency SOS & USSD', description: 'One-tap emergency contacts with GPS sharing and USSD dialing (*123*456#).' },
+      { icon: <Sparkles className="w-5 h-5" />, title: 'Iyabot Voice Assistant', description: 'Multilingual AI companion that works offline in African languages.' },
+      { icon: <Bell className="w-5 h-5" />, title: 'Health Milestone Alerts', description: 'Personalized notifications for check-ups, medications, and milestones.' },
+      { icon: <LocateFixed className="w-5 h-5" />, title: 'Nearby Healthcare Finder', description: 'Locate hospitals, pharmacies, and clinics with real-time availability.' },
+    ],
+  },
+  {
+    title: 'Postpartum Mode',
+    tagline: 'Heal Strong',
+    description: 'Thrive after birth with recovery tracking, mental health support, and baby milestones.',
+    icon: <Baby className="w-6 h-6" />,
+    image: modePostpartumWoman,
+    color: 'postpartum' as const,
+    features: [
+      { icon: <Activity className="w-5 h-5" />, title: 'Recovery Tracking', description: 'Monitor your physical and emotional recovery with daily check-ins.' },
+      { icon: <Heart className="w-5 h-5" />, title: 'Mental Health Support', description: 'Mood tracking, guided exercises, and access to postpartum specialists.' },
+      { icon: <Baby className="w-5 h-5" />, title: 'Baby Milestone Tracker', description: 'Track feeding, sleep, growth, and developmental milestones.' },
+      { icon: <Lock className="w-5 h-5" />, title: 'Privacy & Security', description: 'End-to-end encryption and HIPAA-compliant storage for all health data.' },
+    ],
+  },
+];
+
+const colorMap = {
+  menstrual: { bg: 'bg-menstrual', text: 'text-menstrual', border: 'border-menstrual/30', bgLight: 'bg-menstrual/10', bullet: 'bg-menstrual' },
+  pregnancy: { bg: 'bg-pregnancy', text: 'text-pregnancy', border: 'border-pregnancy/30', bgLight: 'bg-pregnancy/10', bullet: 'bg-pregnancy' },
+  postpartum: { bg: 'bg-postpartum', text: 'text-postpartum', border: 'border-postpartum/30', bgLight: 'bg-postpartum/10', bullet: 'bg-postpartum' },
+};
 
 const Features = () => {
-  const primaryFeatures = [
-    {
-      icon: Bell,
-      title: "Smart Health Alerts",
-      description: "Intelligent notifications for medication reminders, appointment scheduling, and health milestone tracking.",
-      benefits: ["Personalized timing", "Multiple alert types", "Smart prioritization"],
-      status: "Core Feature"
-    },
-    {
-      icon: Phone,
-      title: "Emergency Response & USSD",
-      description: "One-tap emergency contacts with automatic location sharing and USSD dialing (*123*456#) for pregnant women in danger.",
-      benefits: ["Instant contact activation", "GPS location sharing", "USSD emergency dialing", "Medical history access"],
-      status: "Critical Feature"
-    },
-    {
-      icon: MapPin,
-      title: "Location-Based Support",
-      description: "Find nearby healthcare facilities, pharmacies, lactation consultants, and support groups.",
-      benefits: ["Real-time availability", "Reviews and ratings", "Direct booking"],
-      status: "Community Feature"
-    },
-    {
-      icon: MessageCircle,
-      title: "Iyabot Voice Assistant",
-      description: "Revolutionary multilingual AI companion that works offline, providing health guidance in African languages.",
-      benefits: ["Works without internet", "Multiple African languages", "Voice-first interaction"],
-      status: "Revolutionary"
-    }
-  ];
-
-  const additionalFeatures = [
-    { icon: Heart, title: "Wellness Tracking", description: "Monitor mood, energy levels, and overall well-being throughout your maternal journey." },
-    { icon: Clock, title: "Appointment Management", description: "Never miss another appointment with smart scheduling and automated reminders." },
-    { icon: Smartphone, title: "Mobile Optimized", description: "Fully optimized mobile experience for access anywhere, anytime." },
-    { icon: Users, title: "Community Support", description: "Connect with healthcare professionals and support networks in your community." },
-    { icon: Calendar, title: "Milestone Tracking", description: "Celebrate and track important moments in your maternal health journey." },
-    { icon: AlertTriangle, title: "Warning Systems", description: "Early warning indicators for potential health concerns requiring professional attention." },
-    { icon: Activity, title: "Health Analytics", description: "Personalized insights and trends based on your unique health data patterns." },
-    { icon: Shield, title: "Privacy Protection", description: "End-to-end encryption and HIPAA-compliant storage for all health information." }
-  ];
-
+  usePageSEO({ title: 'Features', description: 'Explore MamaAlert features: smart health alerts, emergency SOS, Iyabot AI assistant, and more — across menstrual, pregnancy, and postpartum modes.' });
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="relative pt-16 pb-12 lg:pt-24 lg:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Features That <span className="text-primary">Save Lives</span>
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Every feature in MamaAlert is designed with one goal: providing mothers 
-              with the tools, information, and support they need exactly when they need it.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Primary Features */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Core Features
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The essential tools that make MamaAlert your trusted companion 
-              throughout your maternal health journey.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {primaryFeatures.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-card bg-muted/30 hover:shadow-warm transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <Badge variant="secondary" className="text-xs">
-                      {feature.status}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl text-foreground">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    {feature.description}
-                  </p>
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-semibold text-foreground">Key Benefits:</h4>
-                    <ul className="space-y-1">
-                      {feature.benefits.map((benefit, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* App Preview */}
-      <section className="py-20 bg-primary-light">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Designed for Real Life
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                MamaAlert's interface is intuitive and accessible, designed to work 
-                seamlessly even during stressful moments when you need help fast.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-trust rounded-full flex items-center justify-center">
-                    <span className="text-trust-foreground text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-foreground">One-tap emergency activation</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-trust rounded-full flex items-center justify-center">
-                    <span className="text-trust-foreground text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-foreground">Large, clear buttons for easy access</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-trust rounded-full flex items-center justify-center">
-                    <span className="text-trust-foreground text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-foreground">Voice-activated commands available</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-trust rounded-full flex items-center justify-center">
-                    <span className="text-trust-foreground text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-foreground">Works offline for critical functions</span>
-                </div>
-              </div>
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-3 bg-primary/10 text-primary px-5 py-2.5 rounded-full text-sm font-medium mb-8">
+              <Heart className="w-5 h-5" />
+              <span>Life-Saving Features</span>
             </div>
             
-            <div className="text-center">
-              <div className="relative inline-block">
-                <img 
-                  src={appDashboard} 
-                  alt="MamaAlert app dashboard preview" 
-                  className="max-w-md mx-auto rounded-3xl shadow-warm"
-                />
-                <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  Coming Soon
-                </div>
-              </div>
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-[72px] text-foreground leading-[1.05] mb-8 tracking-tight">
+              Features that
+              <br />
+              <span className="text-primary italic">save lives</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
+              From menstrual tracking to pregnancy care and postpartum recovery — every feature is designed to support mothers at every stage.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-menstrual/10 text-menstrual">Menstrual Mode</span>
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-pregnancy/10 text-pregnancy">Pregnancy Mode</span>
+              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-postpartum/10 text-postpartum">Postpartum Mode</span>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Additional Features Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Comprehensive Support System
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Beyond the core features, MamaAlert provides a complete ecosystem 
-              of tools to support every aspect of your maternal health journey.
-            </p>
-          </div>
+      {/* Mode Feature Lists */}
+      <section className="py-12 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="space-y-16 lg:space-y-24">
+            {modeFeatures.map((mode, i) => {
+              const colors = colorMap[mode.color];
+              return (
+                <AnimatedSection key={i} delay={i * 0.1}>
+                  <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-start">
+                    {/* Mode Header with Image */}
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                      <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden mb-5 shadow-lg">
+                        <img src={mode.image} alt={mode.title} className="w-full h-full object-cover" />
+                        <div className={`absolute top-4 left-4 ${colors.bg} text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5`}>
+                          {mode.icon}
+                          {mode.title}
+                        </div>
+                      </div>
+                      <h2 className={`font-serif text-2xl lg:text-3xl ${colors.text} mb-1`}>{mode.tagline}</h2>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{mode.description}</p>
+                    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {additionalFeatures.map((feature, index) => (
-              <Card key={index} className="text-center p-6 border-0 bg-muted/50 hover:bg-muted/70 transition-all duration-300">
-                <CardContent className="pt-6">
-                  <div className="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                    {/* Feature List */}
+                    <div className="space-y-0">
+                      {mode.features.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className={`flex items-start gap-4 py-5 ${idx !== mode.features.length - 1 ? 'border-b border-border/50' : ''}`}
+                        >
+                          <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${colors.bgLight} ${colors.text} flex items-center justify-center mt-0.5`}>
+                            {feature.icon}
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Security & Privacy */}
-      <section className="py-20 bg-trust-light">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-16 bg-trust rounded-full flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-8 h-8 text-trust-foreground" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Your Privacy, Our Promise
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              We understand that health data is deeply personal. That's why privacy 
-              and security aren't just features—they're the foundation of everything we build.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-foreground mb-2">HIPAA Compliant</h3>
-                <p className="text-muted-foreground text-sm">Full compliance with healthcare privacy regulations</p>
-              </div>
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-foreground mb-2">End-to-End Encryption</h3>
-                <p className="text-muted-foreground text-sm">Your data is encrypted from device to server</p>
-              </div>
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-foreground mb-2">User Control</h3>
-                <p className="text-muted-foreground text-sm">You decide what to share and with whom</p>
-              </div>
-            </div>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
+      <section className="py-20 lg:py-28 bg-primary/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Ready to Experience MamaAlert?
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-8 leading-tight">
+              Ready to experience
+              <br />
+              <span className="italic text-primary">MamaAlert?</span>
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8">
-              Join thousands of mothers already on our waitlist and be among the 
-              first to access these life-changing features.
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              Join thousands of women already using MamaAlert for cycle tracking, pregnancy care, and postpartum recovery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="text-lg px-8 py-3" asChild>
-                <Link to="/waitlist">Join Waitlist</Link>
+              <Button size="lg" className="h-14 px-10 rounded-2xl text-base shadow-lg gap-2" asChild>
+                <a href="https://mamalert.com/app" target="_blank" rel="noopener noreferrer">
+                  Download App
+                  <ArrowRight className="w-5 h-5" />
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                <Link to="/about">Learn Our Story</Link>
+              <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl text-base" asChild>
+                <Link to="/about">Our Story</Link>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +62,21 @@ export default {
         warning: {
           DEFAULT: "hsl(var(--warning))",
           foreground: "hsl(var(--warning-foreground))",
+        },
+        menstrual: {
+          DEFAULT: "hsl(var(--mode-menstrual))",
+          foreground: "hsl(var(--mode-menstrual-foreground))",
+          light: "hsl(var(--mode-menstrual-light))",
+        },
+        pregnancy: {
+          DEFAULT: "hsl(var(--mode-pregnancy))",
+          foreground: "hsl(var(--mode-pregnancy-foreground))",
+          light: "hsl(var(--mode-pregnancy-light))",
+        },
+        postpartum: {
+          DEFAULT: "hsl(var(--mode-postpartum))",
+          foreground: "hsl(var(--mode-postpartum-foreground))",
+          light: "hsl(var(--mode-postpartum-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
