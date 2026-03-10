@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — MamaAlert</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #f0e6ea;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header .logo {
+      color: #E85883;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header .logo span { color: #1a1a1a; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #fff0f4 0%, #f0f4ff 100%);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #E85883;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      font-size: 13px;
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .toc {
+      background: #fafafa;
+      border: 1px solid #f0e6ea;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .toc h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+    }
+
+    .toc li {
+      margin-bottom: 6px;
+    }
+
+    .toc a {
+      color: #E85883;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .toc a:hover { text-decoration: underline; }
+
+    section {
+      margin-bottom: 40px;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0e6ea;
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 20px 0 10px;
+    }
+
+    p { margin-bottom: 14px; color: #333; }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .highlight-box {
+      background: #fff8f0;
+      border-left: 4px solid #E85883;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box p { margin: 0; font-size: 14px; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 600px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 26px; }
+    }
+
+    .info-card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .info-card .label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #E85883;
+      margin-bottom: 6px;
+    }
+
+    .info-card p {
+      font-size: 14px;
+      margin: 0;
+      color: #444;
+    }
+
+    .compliance-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .compliance-badge {
+      background: #f0fff4;
+      border: 1px solid #c6f6d5;
+      color: #276749;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #fff0f4, #f8f0ff);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-box h2 {
+      border: none;
+      margin-bottom: 8px;
+    }
+
+    .contact-box a {
+      color: #E85883;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #f0e6ea;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    footer a { color: #E85883; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">❤️ Mama<span>Alert</span></div>
+  </header>
+
+  <div class="container">
+
+    <div class="hero">
+      <div class="badge">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>How MamaAlert collects, uses, and protects your health data</p>
+      <div class="last-updated">Last updated: March 2026</div>
+    </div>
+
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#data-we-collect">Data We Collect</a></li>
+        <li><a href="#how-we-use">How We Use Your Data</a></li>
+        <li><a href="#data-sharing">Data Sharing</a></li>
+        <li><a href="#data-security">Data Security</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#sms">SMS Communications</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#compliance">Regulatory Compliance</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. INTRODUCTION -->
+    <section id="introduction">
+      <h2>1. Introduction</h2>
+      <p>
+        MamaAlert ("we," "us," or "our") is a maternal health application designed to support
+        women through pregnancy, postpartum recovery, and menstrual health tracking. We are
+        committed to protecting your privacy and handling your personal and health data with
+        the utmost care, transparency, and respect.
+      </p>
+      <p>
+        This Privacy Policy explains what data we collect, why we collect it, how we use it,
+        and the rights you have over your information. By using MamaAlert, you agree to the
+        practices described in this policy.
+      </p>
+      <div class="highlight-box">
+        <p>
+          <strong>Important:</strong> MamaAlert handles sensitive health information.
+          We take this responsibility seriously and are committed to never selling,
+          renting, or exploiting your personal health data for commercial advertising purposes.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="label">App Name</div>
+          <p>MamaAlert</p>
+        </div>
+        <div class="info-card">
+          <div class="label">Contact Email</div>
+          <p>mymamalert@gmail.com</p>
+        </div>
+        <div class="info-card">
+          <div class="label">Country of Operation</div>
+          <p>Nigeria (primary), with international reach</p>
+        </div>
+        <div class="info-card">
+          <div class="label">Data Controller</div>
+          <p>MamaAlert Team</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DATA WE COLLECT -->
+    <section id="data-we-collect">
+      <h2>2. Data We Collect</h2>
+
+      <h3>2.1 Information You Provide Directly</h3>
+      <ul>
+        <li><strong>Preferred name</strong> — used to personalise your experience</li>
+        <li><strong>Phone number</strong> — used for SMS health updates and emergency alerts</li>
+        <li><strong>Due date / pregnancy week</strong> — used to deliver week-appropriate health information</li>
+        <li><strong>Delivery type</strong> — vaginal or C-section, used to personalise postpartum guidance</li>
+        <li><strong>Baby's name</strong> — optional, used for personalisation only</li>
+        <li><strong>Days postpartum</strong> — used to track your recovery stage</li>
+        <li><strong>Menstrual cycle data</strong> — cycle day, phase, period dates</li>
+        <li><strong>Preferred language</strong> — used to send communications in your language</li>
+        <li><strong>Emergency contacts</strong> — names and phone numbers of people to alert in an emergency</li>
+      </ul>
+
+      <h3>2.2 Health Data You Log</h3>
+      <ul>
+        <li>Symptoms you report (nausea, pain, swelling, bleeding etc.)</li>
+        <li>Weight logs</li>
+        <li>Mood logs</li>
+        <li>Appointments and medical notes</li>
+        <li>Questions asked to Nura (our AI health assistant)</li>
+      </ul>
+
+      <h3>2.3 Automatically Collected Data</h3>
+      <ul>
+        <li>Device type and operating system version</li>
+        <li>App usage patterns (features used, frequency)</li>
+        <li>Crash reports and error logs</li>
+        <li>Push notification interaction data</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>
+          <strong>We do not collect:</strong> Government ID numbers, financial information,
+          precise GPS location, or any data from your contacts beyond the emergency contact
+          numbers you voluntarily provide.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. HOW WE USE YOUR DATA -->
+    <section id="how-we-use">
+      <h2>3. How We Use Your Data</h2>
+      <p>We use your data exclusively to provide and improve MamaAlert services:</p>
+      <ul>
+        <li>Delivering personalised weekly pregnancy, postpartum, and menstrual health information</li>
+        <li>Sending weekly SMS health updates tailored to your pregnancy week and language</li>
+        <li>Powering Nura, our AI health assistant, to provide contextual responses to your questions</li>
+        <li>Detecting symptom patterns that may indicate health risks and alerting you appropriately</li>
+        <li>Sending emergency alerts to your designated emergency contacts when you trigger one</li>
+        <li>Sending push notifications for important health reminders and alerts</li>
+        <li>Improving the accuracy and quality of our health information and AI responses</li>
+        <li>Aggregated, anonymised research to improve maternal health outcomes in Nigeria</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>
+          <strong>We will never:</strong> Use your health data for advertising, sell it to
+          third parties, use it to make automated decisions that affect your legal rights,
+          or share it with insurers or employers.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. DATA SHARING -->
+    <section id="data-sharing">
+      <h2>4. Data Sharing</h2>
+      <p>
+        MamaAlert does not sell your personal data. We share data only in the following
+        limited circumstances:
+      </p>
+
+      <h3>4.1 Service Providers</h3>
+      <p>We work with trusted third-party providers who process data on our behalf:</p>
+      <ul>
+        <li><strong>SMS providers</strong> (Termii, Africa's Talking) — to deliver your weekly health SMS. They receive your phone number and message content only.</li>
+        <li><strong>Push notification services</strong> — to deliver health reminders to your device</li>
+        <li><strong>Cloud infrastructure providers</strong> — to store and process app data securely</li>
+        <li><strong>Anthropic (Claude AI)</strong> — Premium users' health questions are processed by Claude AI to generate responses. Anthropic's privacy policy applies to this processing.</li>
+      </ul>
+      <p>All service providers are contractually bound to use your data only for the purpose we specify and to protect it appropriately.</p>
+
+      <h3>4.2 Emergency Situations</h3>
+      <p>
+        When you trigger an emergency alert, your designated emergency contacts will receive
+        an SMS notification. This is a core feature you explicitly consent to when adding
+        emergency contacts.
+      </p>
+
+      <h3>4.3 Legal Requirements</h3>
+      <p>
+        We may disclose your data if required by Nigerian law, a court order, or to protect
+        the safety of our users. We will notify you of such requests where legally permitted.
+      </p>
+
+      <h3>4.4 Anonymised Research</h3>
+      <p>
+        We may share anonymised, aggregated data (never personally identifiable) with
+        public health organisations, research institutions, or our accelerator partners
+        (including UNICEF) to support maternal health research in Nigeria.
+      </p>
+    </section>
+
+    <!-- 5. DATA SECURITY -->
+    <section id="data-security">
+      <h2>5. Data Security</h2>
+      <p>
+        Protecting your health data is our highest technical priority. We implement the
+        following security measures:
+      </p>
+      <ul>
+        <li>Encryption of data in transit (TLS/HTTPS for all communications)</li>
+        <li>Encryption of sensitive health data at rest</li>
+        <li>Secure authentication with password hashing</li>
+        <li>Regular security reviews and vulnerability assessments</li>
+        <li>Access controls — only authorised team members can access user data</li>
+        <li>Audit logs for any access to sensitive health records</li>
+      </ul>
+      <p>
+        While we implement industry-standard security measures, no system is 100% secure.
+        In the unlikely event of a data breach that affects your personal data, we will
+        notify you within 72 hours in accordance with NDPR requirements.
+      </p>
+    </section>
+
+    <!-- 6. YOUR RIGHTS -->
+    <section id="your-rights">
+      <h2>6. Your Rights</h2>
+      <p>
+        Under the Nigerian Data Protection Regulation (NDPR) and general data protection
+        principles, you have the following rights:
+      </p>
+      <ul>
+        <li><strong>Right to access</strong> — request a copy of all data we hold about you</li>
+        <li><strong>Right to correction</strong> — ask us to correct inaccurate data</li>
+        <li><strong>Right to deletion</strong> — request that we delete your account and all associated data</li>
+        <li><strong>Right to portability</strong> — receive your data in a machine-readable format</li>
+        <li><strong>Right to withdraw consent</strong> — stop SMS communications at any time by replying STOP to any message</li>
+        <li><strong>Right to object</strong> — object to any processing of your data you believe is not justified</li>
+        <li><strong>Right to lodge a complaint</strong> — with the Nigeria Data Protection Bureau (NDPB)</li>
+      </ul>
+      <p>
+        To exercise any of these rights, contact us at
+        <a href="mailto:mymamalert@gmail.com" style="color:#E85883;">mymamalert@gmail.com</a>.
+        We will respond within 30 days.
+      </p>
+    </section>
+
+    <!-- 7. CHILDREN -->
+    <section id="children">
+      <h2>7. Children's Privacy</h2>
+      <p>
+        MamaAlert is designed for adults aged 18 and above. We do not knowingly collect
+        personal data from anyone under 18. If you believe a minor has created an account,
+        please contact us immediately at
+        <a href="mailto:mymamalert@gmail.com" style="color:#E85883;">mymamalert@gmail.com</a>
+        and we will delete the account promptly.
+      </p>
+    </section>
+
+    <!-- 8. SMS -->
+    <section id="sms">
+      <h2>8. SMS Communications</h2>
+      <p>
+        If you provide your phone number and consent to SMS, MamaAlert will send you:
+      </p>
+      <ul>
+        <li>Weekly pregnancy health updates tailored to your current week</li>
+        <li>Emergency alerts (only when triggered by you)</li>
+        <li>Critical health warnings relevant to your stage of pregnancy</li>
+      </ul>
+      <p>
+        <strong>To stop SMS at any time:</strong> Reply <strong>STOP</strong> to any message
+        we send, or contact us at mymamalert@gmail.com. Standard network SMS rates from
+        your mobile provider may apply.
+      </p>
+      <p>
+        We use Termii and Africa's Talking to deliver SMS messages. Your phone number is
+        shared with these providers solely for message delivery purposes.
+      </p>
+    </section>
+
+    <!-- 9. RETENTION -->
+    <section id="retention">
+      <h2>9. Data Retention</h2>
+      <p>We retain your data for as long as your account is active. Specifically:</p>
+      <ul>
+        <li><strong>Account data</strong> — retained until you delete your account</li>
+        <li><strong>Health logs</strong> — retained for the duration of your account plus 12 months</li>
+        <li><strong>SMS logs</strong> — retained for 6 months for troubleshooting purposes</li>
+        <li><strong>Anonymised usage data</strong> — may be retained indefinitely for research</li>
+      </ul>
+      <p>
+        When you delete your account, all personally identifiable data is permanently
+        deleted within 30 days. Anonymised aggregated data may be retained for research.
+      </p>
+    </section>
+
+    <!-- 10. COMPLIANCE -->
+    <section id="compliance">
+      <h2>10. Regulatory Compliance</h2>
+
+      <div class="compliance-badges">
+        <div class="compliance-badge">✅ NDPR Compliant</div>
+        <div class="compliance-badge">✅ GDPR Aligned</div>
+        <div class="compliance-badge">✅ HIPAA Principles</div>
+        <div class="compliance-badge">✅ Google Play Policies</div>
+      </div>
+
+      <h3>10.1 NDPR (Nigeria Data Protection Regulation)</h3>
+      <p>
+        MamaAlert complies with the Nigerian Data Protection Regulation (NDPR) 2019 and
+        the Nigeria Data Protection Act 2023. As a health data processor, we maintain
+        appropriate technical and organisational measures to protect personal data.
+      </p>
+
+      <h3>10.2 GDPR Alignment</h3>
+      <p>
+        While primarily a Nigerian service, MamaAlert follows GDPR principles including
+        lawful basis for processing, data minimisation, purpose limitation, and transparency.
+        This protects users across all jurisdictions.
+      </p>
+
+      <h3>10.3 HIPAA Principles</h3>
+      <p>
+        Although HIPAA is a US regulation, MamaAlert voluntarily applies its core principles
+        — including safeguarding Protected Health Information (PHI), limiting disclosure,
+        and ensuring user access rights — as a standard of care for our users' health data.
+      </p>
+
+      <h3>10.4 Health Data Special Category</h3>
+      <p>
+        Under NDPR, health data is a "special category" of personal data requiring explicit
+        consent and heightened protection. By using MamaAlert and providing health information,
+        you provide explicit consent to the processing described in this policy. You may
+        withdraw this consent at any time by deleting your account.
+      </p>
+    </section>
+
+    <!-- 11. CHANGES -->
+    <section id="changes">
+      <h2>11. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our
+        practices or legal requirements. When we make significant changes, we will:
+      </p>
+      <ul>
+        <li>Update the "Last updated" date at the top of this page</li>
+        <li>Send a notification via the app</li>
+        <li>For material changes affecting your rights, seek fresh consent where required</li>
+      </ul>
+      <p>
+        We encourage you to review this policy periodically. Continued use of MamaAlert
+        after changes constitutes acceptance of the updated policy.
+      </p>
+    </section>
+
+    <!-- 12. CONTACT -->
+    <section id="contact">
+      <div class="contact-box">
+        <h2>12. Contact Us</h2>
+        <p style="color:#555; margin-bottom: 16px;">
+          Questions, concerns, or data requests? We're here to help.
+        </p>
+        <p style="margin-bottom: 8px;">
+          📧 <a href="mailto:mymamalert@gmail.com">mymamalert@gmail.com</a>
+        </p>
+        <p style="color:#888; font-size:14px; margin: 0;">
+          We aim to respond to all privacy enquiries within 5 business days.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 MamaAlert. All rights reserved. &nbsp;|&nbsp;
+      <a href="/">Home</a> &nbsp;|&nbsp;
+      <a href="mailto:mymamalert@gmail.com">Contact</a>
+    </p>
+  </footer>
+
+</body>
+</html>
