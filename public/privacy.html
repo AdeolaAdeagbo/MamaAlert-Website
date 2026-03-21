@@ -28,13 +28,16 @@
     }
 
     header .logo {
-      color: #E85883;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
     }
 
-    header .logo span { color: #1a1a1a; }
+    header .logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
 
     .container {
       max-width: 800px;
@@ -239,7 +242,9 @@
 <body>
 
   <header>
-    <div class="logo">❤️ Mama<span>Alert</span></div>
+    <a class="logo" href="https://www.mamalert.com" target="_blank" rel="noopener">
+      <img src="/mamaalert-logo.png" alt="MamaAlert" />
+    </a>
   </header>
 
   <div class="container">
