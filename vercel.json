@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/purchaser-terms", "destination": "/purchaser-terms.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/delete-account", "destination": "/delete-account.html" },
+    { "source": "/((?!terms|purchaser-terms|privacy|delete-account).*)", "destination": "/" }
   ]
 }
