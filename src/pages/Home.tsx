@@ -107,7 +107,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 1 }}
           >
             <div className="flex flex-wrap gap-4 justify-center mb-10">
-              <a href="https://play.google.com/store/apps/details?id=com.mamalert.app" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105">
+              <a href="https://play.google.com/store/apps/details?id=com.mamaalert.app" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
               </a>
               <a href="https://apps.apple.com/app/mamalert/id0000000000" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-105">

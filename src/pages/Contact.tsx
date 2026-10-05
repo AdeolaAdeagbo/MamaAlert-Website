@@ -88,7 +88,7 @@ const Contact = () => {
     {
       icon: iconHealth3d,
       title: "Email Us",
-      content: "mymamalert@gmail.com",
+      content: "info@mamalert.com",
       description: "For general inquiries and support"
     },
     {
